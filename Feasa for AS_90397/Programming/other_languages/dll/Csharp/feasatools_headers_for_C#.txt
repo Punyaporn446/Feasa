@@ -1,0 +1,62 @@
+	// Note: feasa_tools64.dll file has to be used for 64bit targets
+	const string DLLTOOLS_PATH = "feasa_tools.dll"
+	
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern Int16 Feasa_Parse_Int16(StringBuilder StringToParse, byte Parameter);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern Int32 Feasa_Parse_Int32(StringBuilder StringToParse, byte Parameter);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern float Feasa_Parse_Float(StringBuilder StringToParse, byte Parameter);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_RGBI(StringBuilder AnalyserResponse, ref byte Red, ref byte Green, ref byte Blue, ref int Intensity);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_RGBI_All(string Response, byte[] RedValues, byte[] GreenValues, byte[] BlueValues, int[] IntensityValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_HSI(StringBuilder AnalyserResponse, ref float Hue, ref int Saturation, ref int Intensity);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_HSI_All(string Response, float[] HueValues, int[] SaturationValues, int[] IntensityValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_xy(StringBuilder AnalyserResponse, ref float x, ref float y);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_xy_All(string Response, float[] xValues, float[] yValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_uv(StringBuilder AnalyserResponse, ref float u, ref float v);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_uv_All(string Response, float[] uValues, float[] vValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_CCT(StringBuilder AnalyserResponse, ref int CCT, ref float delta);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_CCT_All(string Response, int[] CCTValues, float[] deltaValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_Wavelength(StringBuilder AnalyserResponse, ref float Wavelength);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_Wavelength_All(string Response, float[] WavelengthValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_WI(string Response, ref float Wavelength, ref int Intensity);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_WI_All(string Response, float[] WavelengthValues, int[] IntensityValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_Intensity(string Response, ref int Intensity);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_Intensity_All(string Response, int[] IntensityValues);
+
+	[DllImport(DLLTOOLS_PATH)]
+	private static extern int Feasa_Parse_Spectrum(string Response, float[] WavelengthValues, double[] IntensityValues);

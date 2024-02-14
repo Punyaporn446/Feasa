@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="DaisyChain/DaisyChain.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DaisyChain/Form1.cs">
+    <Files>
+      <File FileName="DaisyChain/Form1.cs" Line="47" Column="14" />
+      <File FileName="DaisyChain/Form1.Designer.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

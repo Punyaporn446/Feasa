@@ -1,0 +1,83 @@
+#Note: feasa_tools64.dll file has to be used for 64bit targets
+self.FeasaTools = ctypes.WinDLL('feasa_tools.dll')
+
+self.Feasa_Parse_Int16 = self.FeasaTools['Feasa_Parse_Int16']
+self.Feasa_Parse_Int16.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_char)]
+self.Feasa_Parse_Int16.restype = ctypes.c_int16
+
+self.Feasa_Parse_Int32 = self.FeasaTools['Feasa_Parse_Int32']
+self.Feasa_Parse_Int32.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_char)]
+self.Feasa_Parse_Int32.restype = ctypes.c_int32
+
+self.Feasa_Parse_Float = self.FeasaTools['Feasa_Parse_Float']
+self.Feasa_Parse_Float.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_char)]
+self.Feasa_Parse_Float.restype = ctypes.c_float
+
+self.Feasa_Parse_RGBI = self.FeasaTools['Feasa_Parse_RGBI']
+self.Feasa_Parse_RGBI.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_RGBI.restype = ctypes.c_int
+
+self.Feasa_Parse_RGBI_All = self.FeasaTools['Feasa_Parse_RGBI_All']
+self.Feasa_Parse_RGBI_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_RGBI_All.restype = ctypes.c_int
+
+self.Feasa_Parse_HSI = self.FeasaTools['Feasa_Parse_HSI']
+self.Feasa_Parse_HSI.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_HSI.restype = ctypes.c_int
+
+self.Feasa_Parse_HSI_All = self.FeasaTools['Feasa_Parse_HSI_All']
+self.Feasa_Parse_HSI_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_HSI_All.restype = ctypes.c_int
+
+self.Feasa_Parse_xy = self.FeasaTools['Feasa_Parse_xy']
+self.Feasa_Parse_xy.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_xy.restype = ctypes.c_int
+
+self.Feasa_Parse_xy_All = self.FeasaTools['Feasa_Parse_xy_All']
+self.Feasa_Parse_xy_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_xy_All.restype = ctypes.c_int
+
+self.Feasa_Parse_uv = self.FeasaTools['Feasa_Parse_uv']
+self.Feasa_Parse_uv.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_uv.restype = ctypes.c_int
+
+self.Feasa_Parse_uv_All = self.FeasaTools['Feasa_Parse_uv_All']
+self.Feasa_Parse_uv_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_uv_All.restype = ctypes.c_int
+
+self.Feasa_Parse_CCT = self.FeasaTools['Feasa_Parse_CCT']
+self.Feasa_Parse_CCT.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_CCT.restype = ctypes.c_int
+
+self.Feasa_Parse_CCT_All = self.FeasaTools['Feasa_Parse_CCT_All']
+self.Feasa_Parse_CCT_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_CCT_All.restype = ctypes.c_int
+
+self.Feasa_Parse_Wavelength = self.FeasaTools['Feasa_Parse_Wavelength']
+self.Feasa_Parse_Wavelength.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_Wavelength.restype = ctypes.c_int
+
+self.Feasa_Parse_Wavelength_All = self.FeasaTools['Feasa_Parse_Wavelength_All']
+self.Feasa_Parse_Wavelength_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float)]
+self.Feasa_Parse_Wavelength_All.restype = ctypes.c_int
+
+self.Feasa_Parse_WI = self.FeasaTools['Feasa_Parse_WI']
+self.Feasa_Parse_WI.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_WI.restype = ctypes.c_int
+
+self.Feasa_Parse_WI_All = self.FeasaTools['Feasa_Parse_WI_All']
+self.Feasa_Parse_WI_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_WI_All.restype = ctypes.c_int
+
+self.Feasa_Parse_Intensity = self.FeasaTools['Feasa_Parse_Intensity']
+self.Feasa_Parse_Intensity.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_Intensity.restype = ctypes.c_int
+
+self.Feasa_Parse_Intensity_All = self.FeasaTools['Feasa_Parse_Intensity_All']
+self.Feasa_Parse_Intensity_All.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_int)]
+self.Feasa_Parse_Intensity_All.restype = ctypes.c_int
+
+self.Feasa_Parse_Spectrum = self.FeasaTools['Feasa_Parse_Spectrum']
+self.Feasa_Parse_Spectrum.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_double)]
+self.Feasa_Parse_Spectrum.restype = ctypes.c_int
+

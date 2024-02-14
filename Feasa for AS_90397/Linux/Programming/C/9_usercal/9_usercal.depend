@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1560412854 source:/home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/9_usercal/main.cpp
+	<stdlib.h>
+	<dlfcn.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	"feasacom.h"
+
+1559905174 /home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/9_usercal/feasacom.h
+

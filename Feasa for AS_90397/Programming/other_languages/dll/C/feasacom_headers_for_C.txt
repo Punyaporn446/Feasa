@@ -1,0 +1,226 @@
+// ------ Definitions to use with LoadLibrary() ------
+
+	typedef void (__stdcall *tFeasaCom_GetDLLVersion)(char * Version);
+	
+	// Basic Comm functions
+	typedef int (__stdcall *tFeasaCom_Open)(const int CommPort, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_Send)(const int CommPort, const char * Command, char * ResponseText);
+	typedef int (__stdcall *tFeasaCom_Close)(const int CommPort);
+	typedef int (__stdcall *tFeasaCom_OpenSN)(const char * SerialNumber, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_SendSN)(const char * SerialNumber, const char * Command, char * ResponseText);
+	typedef int (__stdcall *tFeasaCom_CloseSN)(const char * SerialNumber);
+	
+	// Comm helper functions
+	typedef int (__stdcall *tFeasaCom_SendToAll)(int * ReturnValues, const const char * Command, char ** Responses);
+	typedef int (__stdcall *tFeasaCom_SendToAll_NR)(int * ReturnValues, const const char * Command);
+	typedef int (__stdcall *tFeasaCom_Open_Multi)(int * ReturnValues, const int * CommPorts, const int nPorts, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_Close_Multi)(int * ReturnValues, const int * CommPorts, const int nPorts);
+	typedef int (__stdcall *tFeasaCom_Send_Multi)(int * ReturnValues, const int * CommPorts, const int nPorts, const char ** Commands, char ** Responses);
+	typedef int (__stdcall *tFeasaCom_Send_Multi_NR)(int * ReturnValues, const int * CommPorts, const int nPorts, const char * Commands, const char CommandSeparator);
+	typedef int (__stdcall *tFeasaCom_OpenSN_Multi)(int * ReturnValues, const char ** SerialNumbers, const int nSerials, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_CloseSN_Multi)(int * ReturnValues, const char ** SerialNumbers, const int nSerials);
+	typedef int (__stdcall *tFeasaCom_SendSN_Multi)(int * ReturnValues, const char ** SerialNumbers, const int nSerials, const char ** Commands, char ** Responses);
+	typedef int (__stdcall *tFeasaCom_CloseAll)(void);
+	typedef int (__stdcall *tFeasaCom_GetResponseByPort)(const int CommPort, char * ResponseText);
+
+	// Test functions
+	typedef int (__stdcall *tFeasaCom_Capture)(const int CommPort, const int isPWM, const int CaptureRange, const int CapturePWMFrames);
+	typedef int (__stdcall *tFeasaCom_CaptureFromAll)(int * ReturnValues, const int isPWM, const int CaptureRange, const int CapturePWMFrames);
+	typedef int (__stdcall *tFeasaCom_SpectrometerCapture)(const int CommPort, const int isPWM, const int UseCustomExposure, const float ExposureTime);
+	typedef int (__stdcall *tFeasaCom_SpectrometerDark)(const int CommPort, const int isPWM, const int UseCustomExposure, const float ExposureTime);
+	typedef int (__stdcall *tFeasaCom_CaptureFromAllSpectrometers)(int * ReturnValues, const int isPWM, const int UseCustomExposure, const float ExposureTime);
+	typedef int (__stdcall *tFeasaCom_Sequence_Setup)(const int CommPort, const int StartDelay, const int CaptureTime, const int TimeBetweenCaptures, const int SampleCount, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_Sequence_Capture)(const int CommPort, const int Fiber);
+	typedef int (__stdcall *tFeasaCom_Sequence_ReadIntensity)(const int CommPort, const int Fiber, int * IntensityValues);
+	typedef int (__stdcall *tFeasaCom_Sequence_ReadxyI)(const int CommPort, const int Fiber, float * xValues, float * yValues, int * IntensityValues);
+	typedef int (__stdcall *tFeasaCom_Sequence_ReadHSI)(const int CommPort, const int Fiber, float * HueValues, int * SaturationValues, int * IntensityValues);
+	typedef int (__stdcall *tFeasaCom_Sequence_ReadRGBI)(const int CommPort, const int Fiber, unsigned char * RedValues, unsigned char * GreenValues, unsigned char * BlueValues, int * IntensityValues);
+	typedef int (__stdcall *tFeasaCom_Sequence_ReadCCT)(const int CommPort, const int Fiber, int * CCTValues, float * deltauvValues);
+	typedef int (__stdcall *tFeasaCom_Sequence_ReadWavelength)(const int CommPort, const int Fiber, int * WavelengthValues);
+	typedef int (__stdcall *tFeasaCom_Sequence_GetPattern)(const int CommPort, const int * IntensityValues, int * StatusCount, int * PatternTimes, int * PatternIntensities);
+	typedef int (__stdcall *tFeasaCom_Sequence_GetSweepingPattern)(const int CommPort, const int LEDCount, const int isOffToOn, int * LowTimes, int * HighTimes, int * IntensityValues);
+	typedef int (__stdcall *tFeasaCom_Sequence_GetFrequency)(const int CommPort, const int * IntensityValues, float * Frequency, float * DC, int * CycleCount);
+	typedef int (__stdcall *tFeasaCom_Sequence_FindTestSettings)(const int CommPort, const int TotalLEDCount, const int FiberToTest, const int SignalSpeed, const int BlinkingSpeed, const int MinCycleCount, const int TimeResolutionIsImportant, int * CaptureTime, int * WaitTime, int * SampleCount);
+	typedef int (__stdcall *tFeasaCom_Sequence_SetPatternThresholdHigh)(const int CommPort, const int Intensity);
+	typedef int (__stdcall *tFeasaCom_Sequence_SetPatternThresholdLow)(const int CommPort, const int Intensity);
+	
+	// Daisy-chain functions
+	typedef int (__stdcall *tFeasaCom_DaisyChain_Add)(const int CommPort, const char * SerialNumber);
+	typedef int (__stdcall *tFeasaCom_DaisyChain_Del)(const int CommPort, const char * SerialNumber);
+	typedef int (__stdcall *tFeasaCom_DaisyChain_Clear)(const int CommPort);
+	typedef int (__stdcall *tFeasaCom_DaisyChain_Send)(int CommPort, const char * SerialNumber, const char * Command, char * ResponseText);
+	typedef int (__stdcall *tFeasaCom_DaisyChain_Capture)(const int CommPort, const int isPWM, const int CaptureRange, const int CapturePWMFrames);
+	typedef int (__stdcall *tFeasaCom_DaisyChain_SpectrometerCapture)(const int CommPort, const int isPWM, const int UsePresetExposure, const int UseCustomExposure, const float ExposureTime);
+	typedef int (__stdcall *tFeasaCom_DaisyChain_SpectrometerDark)(const int CommPort, const int isPWM, const int UsePresetExposure, const int UseCustomExposure, const float ExposureTime);
+	
+	// External Trigger functions
+	typedef int (__stdcall *tFeasaCom_ExternalTrigger_Listen)(const int CommPort);
+	typedef int (__stdcall *tFeasaCom_ExternalTrigger_Abort)(const int CommPort);
+	typedef int (__stdcall *tFeasaCom_ExternalTrigger_isFinished)(const int CommPort);
+	
+	// Comm handling functions
+	typedef int (__stdcall *tFeasaCom_EnumPorts)(void);
+	typedef void (__stdcall *tFeasaCom_EnumPorts_Filter)(const int USB, const int RS232, const int Bluetooth);
+	typedef int (__stdcall *tFeasaCom_IsConnected)(const char * SerialNumber, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_AreConnected)(int * PortNumbers, const char ** SerialNumbers, const int nSerials, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_AreConnectedS)(int * PortNumbers, const char * SerialNumbers, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_Detect)(int * CommPorts, const char * Baudrate);
+	typedef int (__stdcall *tFeasaCom_DetectSN)(char ** SerialNumbers, const char * Baudrate);
+	typedef void (__stdcall *tFeasaCom_AddDetectionFilter)(const char * Filter);
+	typedef void (__stdcall *tFeasaCom_ClearDetectionFilters)(void);
+	typedef int (__stdcall *tFeasaCom_IsPortAvailable)(const int CommPort);
+	typedef int (__stdcall *tFeasaCom_ListPortsDetected)(int * ListOfPortsDetected);
+	typedef int (__stdcall *tFeasaCom_ListPortsDetectedTxt)(char * ListOfPortsDetected, const char * Delimiter);
+	typedef int (__stdcall *tFeasaCom_SetResponseTimeout)(const unsigned int Timeout);
+	typedef int (__stdcall *tFeasaCom_SetResponseTimeoutAuto)(const int CommPort, const int status);
+	typedef long (__stdcall *tFeasaCom_GetBaudrate)(const int CommPort);
+	typedef int (__stdcall *tFeasaCom_GetDeviceType)(const int CommPort, char * DeviceType);
+	typedef void (__stdcall *tFeasaCom_GetError_Description)(char * ErrorDescription);
+	typedef void (__stdcall *tFeasaCom_GetError_DescriptionByPort)(const int CommPort, char * ErrorDescription);
+	typedef void (__stdcall *tFeasaCom_GetError_DescriptionBySN)(const char * SerialNumber, char * ErrorDescription);
+	typedef int (__stdcall *tFeasaCom_GetPortBySN)(const char * SerialNumber);
+	typedef int (__stdcall *tFeasaCom_GetSNByPort)(char * SerialNumber, const int CommPort);
+	typedef int (__stdcall *tFeasaCom_GetOpenedPorts)(int * CommPorts);
+	typedef int (__stdcall *tFeasaCom_GetOpenedPortsS)(char * CommPortsTxt, const char Delimiter);
+	typedef int (__stdcall *tFeasaCom_OpenProject)(const char * Path);
+	typedef int (__stdcall *tFeasaCom_CloseProject)(void);
+	typedef int (__stdcall *tFeasaCom_SendByID)(const char * DeviceID, const char * Command, char * ResponseText);
+	
+	// Binning
+	typedef int (__stdcall *tFeasaCom_Binning_GetBinFromVECFile)(const char * Path, const float x, const float y, char * ResultBinName);
+	
+	// UserCal functions
+	typedef int (__stdcall *tFeasaCom_UserCal_ResetxyOffsets)(const int CommPort, const int Fiber, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_SetxyOffsets)(const int CommPort, const int Fiber, const float xOffset, const float yOffset, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_GetxyOffsets)(const int CommPort, const int Fiber, float * xOffset, float * yOffset);
+	typedef int (__stdcall *tFeasaCom_UserCal_AdjustxyOffsets)(const int CommPort, const int Fiber, const float xRef, const float yRef, const int toFlash);
+	
+	typedef int (__stdcall *tFeasaCom_UserCal_ResetWavelengthOffset)(const int CommPort, const int Fiber, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_GetWavelengthOffset)(const int CommPort, const int Fiber, int * WavelengthOffset);
+	typedef int (__stdcall *tFeasaCom_UserCal_SetWavelengthOffset)(const int CommPort, const int Fiber, int const WavelengthOffset, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_AdjustWavelengthOffset)(const int CommPort, const int Fiber, int const WavelengthRef, const int toFlash);
+	
+	typedef int (__stdcall *tFeasaCom_UserCal_ResetIntensity)(const int CommPort, const int Fiber, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_GetIntensityGain)(const int CommPort, const int Fiber, int * Gain);
+	typedef int (__stdcall *tFeasaCom_UserCal_SetIntensityGain)(const int CommPort, const int Fiber, int const Gain, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_AdjustIntensity)(const int CommPort, const int Fiber, int const IntensityRef, const int isPWM, const int CaptureRange, const int toFlash);
+	
+	typedef int (__stdcall *tFeasaCom_UserCal_ResetAbsInt)(const int CommPort, const int Fiber, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_GetAbsIntFactor)(const int CommPort, const int Fiber, double * Factor);
+	typedef int (__stdcall *tFeasaCom_UserCal_SetAbsIntFactor)(const int CommPort, const int Fiber, double const Factor, const int toFlash);
+	typedef int (__stdcall *tFeasaCom_UserCal_AdjustAbsInt)(const int CommPort, const int Fiber, double const AbsIntRef, const int toFlash);
+	
+	typedef int (__stdcall *tFeasaCom_UserCal_ResetRGBAdj)(const int CommPort, const int Fiber);
+	typedef int (__stdcall *tFeasaCom_UserCal_TakeRGBCurrentValues)(const int CommPort, const int Fiber, const char Color);
+	typedef int (__stdcall *tFeasaCom_UserCal_AdjustRGB)(const int CommPort, const int Fiber, const float xRefRed, const float yRefRed, const double AbsIntRefRed, const float xRefGreen, const float yRefGreen, const double AbsIntRefGreen, const float xRefBlue, const float yRefBlue, const double AbsIntRefBlue);
+
+
+// ------ Headers to use with lib file ------
+
+	// Basic Comm functions
+	extern int __stdcall FeasaCom_Open(const int CommPort, const char * Baudrate);
+	extern int __stdcall FeasaCom_Send(const int CommPort, const char * Command, char * ResponseText);
+	extern int __stdcall FeasaCom_Close(const int CommPort);
+	extern int __stdcall FeasaCom_OpenSN(const char * SerialNumber, const char * Baudrate);
+	extern int __stdcall FeasaCom_SendSN(const char * SerialNumber, const char * Command, char * ResponseText);
+	extern int __stdcall FeasaCom_CloseSN(const char * SerialNumber);
+
+	// Comm helper functions
+	extern int __stdcall FeasaCom_SendToAll(int * ReturnValues, const const char * Command, char ** Responses);
+	extern int __stdcall FeasaCom_SendToAll_NR(int * ReturnValues, const const char * Command);
+	extern int __stdcall FeasaCom_Open_Multi(int * ReturnValues, int * CommPorts, const int nPorts, const char * Baudrate);
+	extern int __stdcall FeasaCom_Close_Multi(int * ReturnValues, int * CommPorts, const int nPorts);
+	extern int __stdcall FeasaCom_Send_Multi(int * ReturnValues, int * CommPorts, const int nPorts, const char ** Commands, char ** Responses);
+	extern int __stdcall FeasaCom_Send_Multi_NR(int * ReturnValues, int * CommPorts, const int nPorts, const char * Commands, const char CommandSeparator);
+	extern int __stdcall FeasaCom_OpenSN_Multi(int * ReturnValues, const char ** SerialNumbers, const int nSerials, const char * Baudrate);
+	extern int __stdcall FeasaCom_CloseSN_Multi(int * ReturnValues, const char ** SerialNumbers, const int nSerials);
+	extern int __stdcall FeasaCom_SendSN_Multi(int * ReturnValues, const char ** SerialNumbers, const int nSerials, const char ** Commands, char ** Responses);
+	extern int __stdcall FeasaCom_CloseAll(void);
+	extern int __stdcall GetResponseByPort(const int CommPort, char * ResponseText);
+
+	// Test functions
+	extern int __stdcall FeasaCom_Capture(const int CommPort, const int isPWM, const int CaptureRange, const int CapturePWMFrames);
+	extern int __stdcall FeasaCom_CaptureFromAll(int * ReturnValues, const int isPWM, const int CaptureRange, const int CapturePWMFrames);
+	extern int __stdcall FeasaCom_SpectrometerCapture(const int CommPort, const int isPWM, const int UseCustomExposure, const float ExposureTime);
+	extern int __stdcall FeasaCom_SpectrometerDark(const int CommPort, const int isPWM, const int UseCustomExposure, const float ExposureTime);
+	extern int __stdcall FeasaCom_CaptureFromAllSpectrometers(int * ReturnValues, const int isPWM, const int UseCustomExposure, const float ExposureTime);
+	extern int __stdcall FeasaCom_Sequence_Setup(const int CommPort, const int StartDelay, const int CaptureTime, const int TimeBetweenCaptures, const int SampleCount, const int toFlash);
+	extern int __stdcall FeasaCom_Sequence_Capture(const int CommPort, const int Fiber);
+	extern int __stdcall FeasaCom_Sequence_ReadIntensity(const int CommPort, const int Fiber, int * IntensityValues);
+	extern int __stdcall FeasaCom_Sequence_ReadxyI(const int CommPort, const int Fiber, float * xValues, float * yValues, int * IntensityValues);
+	extern int __stdcall FeasaCom_Sequence_ReadHSI(const int CommPort, const int Fiber, float * HueValues, int * SaturationValues, int * IntensityValues);
+	extern int __stdcall FeasaCom_Sequence_ReadRGBI(const int CommPort, const int Fiber, unsigned char * RedValues, unsigned char * GreenValues, unsigned char * BlueValues, int * IntensityValues);
+	extern int __stdcall FeasaCom_Sequence_ReadCCT(const int CommPort, const int Fiber, int * CCTValues, float * deltauvValues);
+	extern int __stdcall FeasaCom_Sequence_ReadWavelength(const int CommPort, const int Fiber, int * WavelengthValues);
+	extern int __stdcall FeasaCom_Sequence_GetPattern(const int CommPort, const int * IntensityValues, int * StatusCount, int * PatternTimes, int * PatternIntensities);
+	extern int __stdcall FeasaCom_Sequence_GetSweepingPattern(const int CommPort, const int LEDCount, const int isOffToOn, int * LowTimes, int * HighTimes, int * IntensityValues);
+	extern int __stdcall FeasaCom_Sequence_GetFrequency(const int CommPort, const int * IntensityValues, float * Frequency, float * DC, int * CycleCount);
+	extern int __stdcall FeasaCom_Sequence_FindTestSettings(const int CommPort, const int TotalLEDCount, const int FiberToTest, const int SignalSpeed, const int BlinkingSpeed, const int MinCycleCount, const int TimeResolutionIsImportant, int * CaptureTime, int * WaitTime, int * SampleCount);
+	extern int __stdcall FeasaCom_Sequence_SetPatternThresholdHigh(const int CommPort, const int Intensity);
+	extern int __stdcall FeasaCom_Sequence_SetPatternThresholdLow(const int CommPort, const int Intensity);
+	
+	// Daisy-chain functions
+	extern int __stdcall FeasaCom_DaisyChain_Add(const int CommPort, const char * SerialNumber);
+	extern int __stdcall FeasaCom_DaisyChain_Del(const int CommPort, const char * SerialNumber);
+	extern int __stdcall FeasaCom_DaisyChain_Clear(const int CommPort);
+	extern int __stdcall FeasaCom_DaisyChain_Send(int CommPort, const char * SerialNumber, const char * Command, char * ResponseText);
+	extern int __stdcall FeasaCom_DaisyChain_Capture(const int CommPort, const int isPWM, const int CaptureRange, const int CapturePWMFrames);
+	extern int __stdcall FeasaCom_DaisyChain_SpectrometerCapture(const int CommPort, const int isPWM, const int UsePresetExposure, const float ExposureTime);
+	extern int __stdcall FeasaCom_DaisyChain_SpectrometerDark(const int CommPort, const int isPWM, const int UsePresetExposure, const float ExposureTime);
+	
+	// External Trigger functions
+	extern int __stdcall FeasaCom_ExternalTrigger_Listen(const int CommPort);
+	extern int __stdcall FeasaCom_ExternalTrigger_Abort(const int CommPort);
+	extern int __stdcall FeasaCom_ExternalTrigger_isFinished(const int CommPort);
+
+	// Comm handling functions
+	extern int __stdcall FeasaCom_EnumPorts(void);
+	extern void __stdcall FeasaCom_EnumPorts_Filter(const int USB, const int RS232, const int Bluetooth);
+	extern int __stdcall FeasaCom_IsConnected(const char * SerialNumber, const char * Baudrate);
+	extern int __stdcall FeasaCom_AreConnected(int * PortNumbers, const char ** SerialNumbers, const int nSerials, const char * Baudrate);
+	extern int __stdcall FeasaCom_AreConnectedS(int * PortNumbers, const char * SerialNumbers, const char * Baudrate);
+	extern int __stdcall FeasaCom_Detect(int * CommPorts, const char * Baudrate);
+	extern int __stdcall FeasaCom_DetectSN(char ** SerialNumbers, const char * Baudrate);
+	extern void __stdcall FeasaCom_AddDetectionFilter(const char * Filter);
+	extern void __stdcall FeasaCom_ClearDetectionFilters(void);
+	extern int __stdcall FeasaCom_IsPortAvailable(const int CommPort);
+	extern int __stdcall FeasaCom_ListPortsDetected(int * ListOfPortsDetected);
+	extern int __stdcall FeasaCom_ListPortsDetectedTxt(char * ListOfPortsDetected, const char * Delimiter);
+	extern int __stdcall FeasaCom_SetResponseTimeout(const unsigned int Timeout);
+	extern int __stdcall FeasaCom_SetResponseTimeoutAuto(const int CommPort, const int status);
+	extern long __stdcall FeasaCom_GetBaudrate(const int CommPort);
+	extern int __stdcall FeasaCom_GetDeviceType(const int CommPort, char * DeviceType);
+	extern void __stdcall FeasaCom_GetError_Description(char * ErrorDescription);
+	extern void __stdcall FeasaCom_GetError_DescriptionByPort(const int CommPort, char * ErrorDescription);
+	extern void __stdcall FeasaCom_GetError_DescriptionBySN(const char * SerialNumber, char * ErrorDescription);
+	extern int __stdcall FeasaCom_GetPortBySN(const char * SerialNumber);
+	extern int __stdcall FeasaCom_GetSNByPort(char * SerialNumber, const int CommPort);
+	extern int __stdcall FeasaCom_GetOpenedPorts(int * CommPorts);
+	extern int __stdcall FeasaCom_GetOpenedPortsS(char * CommPortsTxt, const char Delimiter);
+	extern int __stdcall FeasaCom_OpenProject(const char * Path);
+	extern int __stdcall FeasaCom_CloseProject(void);
+	extern int __stdcall FeasaCom_SendByID(const char * DeviceID, const char * Command, char * ResponseText);
+
+	// Binning
+	extern int __stdcall FeasaCom_Binning_GetBinFromVECFile(const char * Path, const float x, const float y, char * ResultBinName);
+
+	// UserCal functions
+	extern int __stdcall FeasaCom_UserCal_ResetxyOffsets(const int CommPort, const int Fiber, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_SetxyOffsets(const int CommPort, const int Fiber, const float xOffset, const float yOffset, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_GetxyOffsets(const int CommPort, const int Fiber, float * xOffset, float * yOffset);
+	extern int __stdcall FeasaCom_UserCal_AdjustxyOffsets(const int CommPort, const int Fiber, const float xRef, const float yRef, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_ResetWavelengthOffset(const int CommPort, const int Fiber, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_GetWavelengthOffset(const int CommPort, const int Fiber, int * WavelengthOffset);
+	extern int __stdcall FeasaCom_UserCal_SetWavelengthOffset(const int CommPort, const int Fiber, const int WavelengthOffset, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_AdjustWavelengthOffset(const int CommPort, const int Fiber, const int WavelengthRef, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_ResetIntensity(const int CommPort, const int Fiber, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_GetIntensityGain(const int CommPort, const int Fiber, int * Gain);
+	extern int __stdcall FeasaCom_UserCal_SetIntensityGain(const int CommPort, const int Fiber, const int Gain, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_AdjustIntensity(const int CommPort, const int Fiber, const int IntensityRef, const int isPWM, const int CaptureRange, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_ResetAbsInt(const int CommPort, const int Fiber, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_GetAbsIntFactor(const int CommPort, const int Fiber, double * Factor);
+	extern int __stdcall FeasaCom_UserCal_SetAbsIntFactor(const int CommPort, const int Fiber, const double Factor, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_AdjustAbsInt(const int CommPort, const int Fiber, const double AbsIntRef, const int toFlash);
+	extern int __stdcall FeasaCom_UserCal_ResetRGBAdj(const int CommPort, const int Fiber);
+	extern int __stdcall FeasaCom_UserCal_TakeRGBCurrentValues(const int CommPort, const int Fiber, const char Color);
+	extern int __stdcall FeasaCom_UserCal_AdjustRGB(const int CommPort, const int Fiber, const float xRefRed, const float yRefRed, const double AbsIntRefRed, const float xRefGreen, const float yRefGreen, const double AbsIntRefGreen, const float xRefBlue, const float yRefBlue, const double AbsIntRefBlue);

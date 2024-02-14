@@ -1,0 +1,139 @@
+object frmMain: TfrmMain
+  Left = 289
+  Height = 358
+  Top = 126
+  Width = 370
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Search Led Analyser - (c) Feasa Enterprises Ltd'
+  ClientHeight = 358
+  ClientWidth = 370
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '2.0.0.4'
+  object Label2: TLabel
+    Left = 0
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Info'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label3: TLabel
+    Left = 183
+    Height = 22
+    Top = 0
+    Width = 187
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Search'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label5: TLabel
+    Left = 8
+    Height = 176
+    Top = 40
+    Width = 145
+    AutoSize = False
+    Caption = 'In this example we will show how to find a Led Analyser by its Serial Number and then open a communication to retrieve its status.'#13#10#13#10'Here will be also shown how to detect and list all Analysers connected.'
+    ParentBidiMode = False
+    ParentColor = False
+    WordWrap = True
+  end
+  object GroupBox1: TGroupBox
+    Left = 160
+    Height = 97
+    Top = 32
+    Width = 200
+    Caption = 'Search'
+    ClientHeight = 77
+    ClientWidth = 196
+    TabOrder = 0
+    object Label10: TLabel
+      Left = 14
+      Height = 15
+      Top = 8
+      Width = 118
+      Caption = 'Serial Number to Find:'
+      ParentColor = False
+    end
+    object txtSN: TEdit
+      Left = 133
+      Height = 23
+      Top = 8
+      Width = 48
+      CharCase = ecUppercase
+      MaxLength = 4
+      TabOrder = 0
+      Text = 'E001'
+    end
+    object cmdCaptureAndRead: TButton
+      Left = 14
+      Height = 34
+      Top = 40
+      Width = 167
+      Caption = 'Find Analyser && Show Status'
+      OnClick = cmdCaptureAndReadClick
+      TabOrder = 1
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 160
+    Height = 216
+    Top = 136
+    Width = 200
+    Caption = 'Results'
+    ClientHeight = 196
+    ClientWidth = 196
+    TabOrder = 1
+    object lblLog: TLabel
+      Left = 4
+      Height = 191
+      Top = 1
+      Width = 186
+      AutoSize = False
+      Color = clWhite
+      ParentColor = False
+      Transparent = False
+      WordWrap = True
+    end
+  end
+  object cmdDetect: TButton
+    Left = 8
+    Height = 34
+    Top = 272
+    Width = 144
+    Caption = 'Detect Ports'
+    OnClick = cmdDetectClick
+    TabOrder = 2
+  end
+  object cmdDetectSerials: TButton
+    Left = 8
+    Height = 34
+    Top = 312
+    Width = 144
+    Caption = 'Detect Serials'
+    OnClick = cmdDetectSerialsClick
+    TabOrder = 3
+  end
+end

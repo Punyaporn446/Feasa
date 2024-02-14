@@ -1,0 +1,49 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfrmMain','FORMDATA',[
+  'TPF0'#8'TfrmMain'#7'frmMain'#4'Left'#3#149#1#6'Height'#3'<'#1#3'Top'#3#28#1#5
+  +'Width'#3'p'#1#11'BorderIcons'#11#12'biSystemMenu'#10'biMinimize'#0#11'Borde'
+  +'rStyle'#7#8'bsSingle'#7'Caption'#6'*Capture & Read - (c) Feasa Enterprises '
+  +'Ltd'#12'ClientHeight'#3'<'#1#11'ClientWidth'#3'p'#1#8'OnCreate'#7#10'FormCr'
+  +'eate'#8'Position'#7#15'poDesktopCenter'#10'LCLVersion'#6#7'1.4.4.0'#0#6'TLa'
+  +'bel'#6'Label2'#4'Left'#2#0#6'Height'#2#22#3'Top'#2#0#5'Width'#3#184#0#9'Ali'
+  +'gnment'#7#8'taCenter'#8'AutoSize'#8#7'Caption'#6#20'Communications Setup'#5
+  +'Color'#7#6'clGray'#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7#7'c'
+  +'lWhite'#11'Font.Height'#2#243#9'Font.Name'#6#5'Arial'#10'Font.Pitch'#7#10'f'
+  +'pVariable'#12'Font.Quality'#7#7'fqDraft'#11'ParentColor'#8#10'ParentFont'#8
+  +#11'Transparent'#8#0#0#6'TLabel'#6'Label3'#4'Left'#3#183#0#6'Height'#2#22#3
+  +'Top'#2#0#5'Width'#3#184#0#9'Alignment'#7#8'taCenter'#8'AutoSize'#8#7'Captio'
+  +'n'#6#15'Read && Capture'#5'Color'#7#6'clGray'#12'Font.CharSet'#7#12'ANSI_CH'
+  +'ARSET'#10'Font.Color'#7#7'clWhite'#11'Font.Height'#2#243#9'Font.Name'#6#5'A'
+  +'rial'#10'Font.Pitch'#7#10'fpVariable'#12'Font.Quality'#7#7'fqDraft'#11'Pare'
+  +'ntColor'#8#10'ParentFont'#8#11'Transparent'#8#0#0#6'TPanel'#6'Panel1'#4'Lef'
+  +'t'#2#0#6'Height'#3#31#1#3'Top'#2#24#5'Width'#3#182#0#12'ClientHeight'#3#31#1
+  +#11'ClientWidth'#3#182#0#8'TabOrder'#2#0#0#6'TLabel'#6'Label1'#4'Left'#2#8#6
+  +'Height'#2#15#3'Top'#2'('#5'Width'#2';'#7'Caption'#6#9'Port:'#11'ParentC'
+  +'olor'#8#0#0#9'TComboBox'#7'lstPort'#4'Left'#2'H'#6'Height'#2#29#3'Top'#2' '
+  +#5'Width'#2'a'#10'ItemHeight'#2#0#5'Style'#7#14'csDropDownList'#8'TabOrder'#2
+  +#0#0#0#6'TLabel'#6'Label5'#4'Left'#2#8#6'Height'#3#182#0#3'Top'#2'N'#5'Width'
+  +#3#161#0#8'AutoSize'#8#7'Caption'#6#197'CAUTION: the SO file should be locat'
+  +'ed in the user libraries path. Ex: /usr/lib/'#10#10'The user needs permissi'
+  +'ons to write to the port and belong to the corresponding communication grou'
+  +'ps (dialout, etc)'#14'ParentBidiMode'#8#11'ParentColor'#8#8'WordWrap'#9#0#0
+  +#0#6'TPanel'#6'Panel2'#4'Left'#3#183#0#6'Height'#3#31#1#3'Top'#2#24#5'Width'
+  +#3#182#0#12'ClientHeight'#3#31#1#11'ClientWidth'#3#182#0#8'TabOrder'#2#1#0#6
+  +'TLabel'#6'Label8'#4'Left'#2#9#6'Height'#2'@'#3'Top'#2#16#5'Width'#3#161#0#8
+  +'AutoSize'#8#7'Caption'#6'FPress the button shown below to execute a capture'
+  +' and read the result.'#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7
+  +#7'clBlack'#11'Font.Height'#2#243#9'Font.Name'#6#5'Arial'#10'Font.Pitch'#7#10
+  +'fpVariable'#12'Font.Quality'#7#7'fqDraft'#14'ParentBidiMode'#8#11'ParentCol'
+  +'or'#8#10'ParentFont'#8#8'WordWrap'#9#0#0#6'TLabel'#6'Label7'#4'Left'#2#15#6
+  +'Height'#2#15#3'Top'#3#176#0#5'Width'#2'0'#7'Caption'#6#8'Results:'#12'Font.'
+  +'CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7#7'clBlack'#11'Font.Height'#2
+  +#243#9'Font.Name'#6#5'Arial'#10'Font.Pitch'#7#10'fpVariable'#12'Font.Quality'
+  +#7#7'fqDraft'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'#6'Label9'#4'L'
+  +'eft'#2#16#6'Height'#2#15#3'Top'#2'_'#5'Width'#2'!'#7'Caption'#6#6'Fiber:'#11
+  +'ParentColor'#8#0#0#7'TButton'#17'cmdCaptureAndRead'#4'Left'#2#9#6'Height'#2
+  +'2'#3'Top'#2'x'#5'Width'#3#158#0#7'Caption'#6#16'CAPTURE AND READ'#7'OnClick'
+  +#7#22'cmdCaptureAndReadClick'#8'TabOrder'#2#0#0#0#5'TEdit'#8'txtFiber'#4'Lef'
+  +'t'#2'1'#6'Height'#2#25#3'Top'#2'['#5'Width'#2' '#9'MaxLength'#2#2#8'TabOrde'
+  +'r'#2#1#4'Text'#6#1'1'#0#0#5'TEdit'#6'txtLog'#4'Left'#2#13#6'Height'#2#25#3
+  +'Top'#3#200#0#5'Width'#3#155#0#8'TabOrder'#2#2#0#0#0#0
+]);

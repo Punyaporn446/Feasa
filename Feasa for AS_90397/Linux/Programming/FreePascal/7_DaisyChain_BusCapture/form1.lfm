@@ -1,0 +1,212 @@
+object frmMain: TfrmMain
+  Left = 264
+  Height = 437
+  Top = 173
+  Width = 443
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Daisy Chain Bus Capture- (c) Feasa Enterprises Ltd'
+  ClientHeight = 437
+  ClientWidth = 443
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object Label2: TLabel
+    Left = 0
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Communications Setup'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label3: TLabel
+    Left = 183
+    Height = 22
+    Top = 0
+    Width = 261
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Read && Capture'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 32
+    Top = 32
+    Width = 150
+    AutoSize = False
+    Caption = 'Port of the 1st Led Analyser:'
+    ParentColor = False
+    WordWrap = True
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 72
+    Top = 101
+    Width = 161
+    AutoSize = False
+    Caption = 'Select the port of the 1st Analyser (Bus Master) and then add all the devices attached to the Bus in the list below.'
+    Font.Color = clRed
+    Font.Height = -11
+    ParentBidiMode = False
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object GroupBox1: TGroupBox
+    Left = 6
+    Height = 172
+    Top = 256
+    Width = 178
+    Caption = 'Daisy Chained Analysers'
+    ClientHeight = 156
+    ClientWidth = 176
+    TabOrder = 0
+    object cmdAdd: TButton
+      Left = 8
+      Height = 26
+      Top = 0
+      Width = 152
+      Caption = 'ADD Analyser:'
+      OnClick = cmdAddClick
+      TabOrder = 0
+    end
+    object lstAnalysers: TListBox
+      Left = 8
+      Height = 111
+      Top = 33
+      Width = 152
+      ItemHeight = 0
+      ScrollWidth = 150
+      TabOrder = 1
+      TopIndex = -1
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 187
+    Height = 172
+    Top = 256
+    Width = 245
+    Caption = 'Response'
+    ClientHeight = 156
+    ClientWidth = 243
+    TabOrder = 1
+    object lblLog: TLabel
+      Left = 8
+      Height = 144
+      Top = 0
+      Width = 230
+      AutoSize = False
+      Color = clWhite
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+  end
+  object lstPort: TComboBox
+    Left = 48
+    Height = 29
+    Top = 62
+    Width = 134
+    ItemHeight = 0
+    Style = csDropDownList
+    TabOrder = 2
+  end
+  object GroupBox4: TGroupBox
+    Left = 187
+    Height = 216
+    Top = 32
+    Width = 248
+    Caption = 'Commands'
+    ClientHeight = 200
+    ClientWidth = 246
+    TabOrder = 3
+    object Label11: TLabel
+      Left = 6
+      Height = 15
+      Top = 10
+      Width = 88
+      Caption = 'Capture Mode:'
+      ParentColor = False
+    end
+    object lstCaptureMode: TComboBox
+      Left = 9
+      Height = 29
+      Top = 32
+      Width = 229
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object Label15: TLabel
+      Left = 6
+      Height = 15
+      Top = 67
+      Width = 153
+      Caption = 'Capture Range (manual):'
+      ParentColor = False
+    end
+    object lstCaptureRange: TComboBox
+      Left = 177
+      Height = 29
+      Top = 64
+      Width = 61
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object Label9: TLabel
+      Left = 116
+      Height = 15
+      Top = 131
+      Width = 80
+      Caption = 'Fiber to read:'
+      ParentColor = False
+    end
+    object txtFiber: TEdit
+      Left = 202
+      Height = 25
+      Top = 128
+      Width = 32
+      MaxLength = 2
+      TabOrder = 2
+      Text = '1'
+    end
+    object cmdCaptureAndRead: TButton
+      Left = 9
+      Height = 30
+      Top = 160
+      Width = 229
+      Caption = 'BUS CAPTURE + READ'
+      OnClick = cmdCaptureAndReadClick
+      TabOrder = 3
+    end
+  end
+end

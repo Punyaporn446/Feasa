@@ -1,0 +1,50 @@
+// ------ Definitions to use with LoadLibrary() ------
+
+	typedef __int16 (__stdcall *tDllParse_Int16)(const char * StringToParse, char Parameter);
+	typedef int (__stdcall *tDllParse_Int32)(const char * StringToParse, char Parameter);
+	typedef float (__stdcall *tDllParse_Float)(const char * StringToParse, char Parameter);
+
+	typedef int (__stdcall *tDllParse_RGBI)(const char * AnalyserResponse, unsigned char * Red, unsigned char * Green, unsigned char * Blue, int * Intensity);
+	typedef int (__stdcall *tDllParse_RGBI_All)(const char * AnalyserResponse, unsigned char * RedValues, unsigned char * GreenValues, unsigned char * BlueValues, int * IntensityValues);
+	typedef int (__stdcall *tDllParse_HSI)(const char * AnalyserResponse, float * Hue, int * Saturation, int * Intensity);
+	typedef int (__stdcall *tDllParse_HSI_All)(const char * AnalyserResponse, float * HueValues, int * SaturationValues, int * IntensityValues);
+	typedef int (__stdcall *tDllParse_xy)(const char * AnalyserResponse, float * x, float * y);
+	typedef int (__stdcall *tDllParse_xy_All)(const char * AnalyserResponse, float * xValues, float * yValues);
+	typedef int (__stdcall *tDllParse_uv)(const char * AnalyserResponse, float * u, float * v);
+	typedef int (__stdcall *tDllParse_uv_All)(const char * AnalyserResponse, float * uValues, float * vValues);
+	typedef int (__stdcall *tDllParse_CCT)(const char * AnalyserResponse, int * CCT, float * delta);
+	typedef int (__stdcall *tDllParse_CCT_All)(const char * AnalyserResponse, int * CCTValues, float * deltaValues);
+	typedef int (__stdcall *tDllParse_Wavelength)(const char * AnalyserResponse, float * Wavelength);
+	typedef int (__stdcall *tDllParse_Wavelength_All)(const char * AnalyserResponse, float * WavelengthValues);
+	typedef int (__stdcall *tDllParse_WI)(const char * AnalyserResponse, float * Wavelength, int * Intensity);
+	typedef int (__stdcall *tDllParse_WI_All)(const char * AnalyserResponse, float * WavelengthValues, int * IntensityValues);
+	typedef int (__stdcall *tDllParse_Intensity)(const char * AnalyserResponse, int * Intensity);
+	typedef int (__stdcall *tDllParse_Intensity_All)(const char * AnalyserResponse, int * IntensityValues);
+
+	typedef int (__stdcall *tDllParse_Spectrum)(const char * Response, float * WavelengthValues, double * IntensityValues);
+
+
+// ------ Headers to use with lib file ------
+
+	extern __int16 __stdcall Feasa_Parse_Int16(const char * StringToParse, char Parameter);
+	extern int __stdcall Feasa_Parse_Int32(const char * StringToParse, char Parameter);
+	extern float __stdcall Feasa_Parse_Float(const char * StringToParse, char Parameter);
+
+	extern int __stdcall Feasa_Parse_RGBI(const char * AnalyserResponse, unsigned char * Red, unsigned char * Green, unsigned char * Blue, int * Intensity);
+	extern int __stdcall Feasa_Parse_RGBI_All(const char * AnalyserResponse, unsigned char * RedValues, unsigned char * GreenValues, unsigned char * BlueValues, int * IntensityValues);
+	extern int __stdcall Feasa_Parse_HSI(const char * AnalyserResponse, float * Hue, int * Saturation, int * Intensity);
+	extern int __stdcall Feasa_Parse_HSI_All(const char * AnalyserResponse, float * HueValues, int * SaturationValues, int * IntensityValues);
+	extern int __stdcall Feasa_Parse_xy(const char * AnalyserResponse, float * x, float * y);
+	extern int __stdcall Feasa_Parse_xy_All(const char * AnalyserResponse, float * xValues, float * yValues);
+	extern int __stdcall Feasa_Parse_uv(const char * AnalyserResponse, float * u, float * v);
+	extern int __stdcall Feasa_Parse_uv_All(const char * AnalyserResponse, float * uValues, float * vValues);
+	extern int __stdcall Feasa_Parse_CCT(const char * AnalyserResponse, int * CCT, float * delta);
+	extern int __stdcall Feasa_Parse_CCT_All(const char * AnalyserResponse, int * CCTValues, float * deltaValues);
+	extern int __stdcall Feasa_Parse_Wavelength(const char * AnalyserResponse, float * Wavelength);
+	extern int __stdcall Feasa_Parse_Wavelength_All(const char * AnalyserResponse, float * WavelengthValues);
+	extern int __stdcall Feasa_Parse_WI(const char * AnalyserResponse, float * Wavelength, int * Intensity);
+	extern int __stdcall Feasa_Parse_WI_All(const char * AnalyserResponse, float * WavelengthValues, int * IntensityValues);
+	extern int __stdcall Feasa_Parse_Intensity(const char * AnalyserResponse, int * Intensity);
+	extern int __stdcall Feasa_Parse_Intensity_All(const char * AnalyserResponse, int * IntensityValues);
+
+	extern int __stdcall Feasa_Parse_Spectrum(const char * Response, float * WavelengthValues, double * IntensityValues);

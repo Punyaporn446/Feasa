@@ -1,0 +1,312 @@
+	//Note: libfeasacom.so file has to be used for 32bit targets
+	const string LIB_PATH = "libfeasacom.x86_64.so";
+
+        [DllImport(LIB_PATH)]
+        public static extern void FeasaCom_GetLibraryVersion(StringBuilder Version);
+
+
+	// Basic Comm functions
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Open(string DevPath, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Close(string DevPath);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Send(string DevPath, string Command, StringBuilder ResponseText);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_OpenSN(string SerialNumber, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_CloseSN(string SerialNumber);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SendSN(string SerialNumber, string Command, StringBuilder ResponseText);
+
+
+	// Comm helper functions
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SendToAll(int[] ReturnValues, string Command, IntPtr[] pResponses);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SendToAll_NR(int[] ReturnValues, string Command);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Open_Multi(int[] ReturnValues, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] DevPaths, int nPorts, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Close_Multi(int[] ReturnValues, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] DevPaths, int nPorts);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Send_Multi(int[] ReturnValues, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] DevPaths, int nPorts, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] Commands, IntPtr[] pResponses);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Send_Multi_NR(int[] ReturnValues, string DevPaths, int nPorts, string Commands, char CommandSeparator);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_OpenSN_Multi(int[] ReturnValues, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] SerialNumbers, int nSerials, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_CloseSN_Multi(int[] ReturnValues, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] SerialNumbers, int nSerials);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SendSN_Multi(int[] ReturnValues, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] SerialNumbers, int nSerials, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] Commands, IntPtr[] pResponses);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_CloseAll();
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetResponseByPort(string DevPath, StringBuilder ResponseText);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetOpenedPorts(IntPtr[] DevPaths);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetOpenedPortsS(StringBuilder DevPaths, Char Delimiter);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_OpenProject(string Path);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_CloseProject();
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SendByID(string DeviceID, string Command, StringBuilder ResponseText);
+        
+        
+        // Test functions
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Capture(string DevPath, int isPWM, int CaptureRange, int CapturePWMFrames);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_CaptureFromAll(int[] ReturnValues, int isPWM, int CaptureRange, int CapturePWMFrames);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SpectrometerCapture(string DevPath, int isPWM, int UseCustomExposure, float ExposureTime);
+        
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SpectrometerDark(string DevPath, int isPWM, int UseCustomExposure, float ExposureTime);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_CaptureFromAllSpectrometers(int[] ReturnValues, int isPWM, int UseCustomExposure, float ExposureTime);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_Setup(string DevPath, int StartDelay, int CaptureTime, int TimeBetweenCaptures, int SampleCount, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_Capture(string DevPath, int Fiber);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_ReadIntensity(string DevPath, int Fiber, int[] IntensityValues);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_ReadxyI(string DevPath, int Fiber, float[] xValues, float[] yValues, int[] IntensityValues);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_ReadHSI(string DevPath, int Fiber, float[] HueValues, int[] SaturationValues, int[] IntensityValues);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_ReadRGBI(string DevPath, int Fiber, byte[] RedValues, byte[] GreenValues, byte[] BlueValues, int[] IntensityValues);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_ReadCCT(string DevPath, int Fiber, int[] CCTValues, float[] deltauvValues);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_ReadWavelength(string DevPath, int Fiber, int[] WavelengthValues);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_GetPattern(string DevPath, int[] IntensityValues, ref int StatusCount, int[] PatternTimes, int[] PatternIntensities);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_GetSweepingPattern(string DevPath, int LEDCount, int isOffToOn, int[] LowTimes, int[] HighTimes, int[] IntensityValues);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_GetFrequency(string DevPath, int[] IntensityValues, ref float Frequency, ref float DC, ref int CycleCount);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_FindTestSettings(string DevPath, int TotalLEDCount, int FiberToTest, int SignalSpeed, int BlinkingSpeed, int MinCycleCount, int TimeResolutionIsImportant, ref int CaptureTime, ref int WaitTime, ref int SampleCount);
+        
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_SetPatternThresholdHigh(string DevPath, int Intensity);
+        
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Sequence_SetPatternThresholdLow(string DevPath, int Intensity);
+
+
+	// Daisy-chain functions
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DaisyChain_Add(string DevPath, string SerialNumber);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DaisyChain_Del(string DevPath, string SerialNumber);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DaisyChain_Clear(string DevPath);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DaisyChain_Send(string DevPath, string SerialNumber, string Command, StringBuilder ResponseText);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DaisyChain_Capture(string DevPath, int isPWM, int CaptureRange, int CapturePWMFrames);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DaisyChain_SpectrometerCapture(string DevPath, int UsePresetExposure, int UseCustomExposure, float CapturePWMFrames);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DaisyChain_SpectrometerDark(string DevPath, int isPWM, int UsePresetExposure, float ExposureTime);
+
+
+	// External Trigger functions
+        [DllImport(LIB_PATH, EntryPoint = "FeasaCom_ExternalTrigger_Listen")]
+        public static extern int FeasaCom_ExternalTrigger_Listen(string DevPath);
+
+        [DllImport(LIB_PATH, EntryPoint = "FeasaCom_ExternalTrigger_Abort")]
+        public static extern int FeasaCom_ExternalTrigger_Abort(string DevPath);
+
+        [DllImport(LIB_PATH, EntryPoint = "FeasaCom_ExternalTrigger_isFinished")]
+        public static extern int FeasaCom_ExternalTrigger_isFinished(string DevPath);
+
+        [DllImport(LIB_PATH, EntryPoint = "FeasaCom_ExternalTrigger_Enable")]
+        public static extern int FeasaCom_ExternalTrigger_Enable(string DevPath, int CaptureRange, int isPWM, string OutputType, int PreDelay, int PostDelay, int toFlash);
+
+        [DllImport(LIB_PATH, EntryPoint = "FeasaCom_ExternalTrigger_Disable")]
+        public static extern int FeasaCom_ExternalTrigger_Disable(string DevPath, int toFlash);
+
+
+	// Comm handling functions
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_EnumPorts();
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_IsConnected(StringBuilder DevPath, string SerialNumber, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_AreConnected(IntPtr[] pDevPaths, [In, Out, MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.LPStr)] string[] SerialNumbers, int nSerials, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_AreConnectedS(StringBuilder DevPaths, string SerialNumbers, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_Detect(IntPtr[] pDevPaths, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DetectS(StringBuilder DevPaths, char Delimiter, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern void FeasaCom_AddDetectionFilter(string Filter);
+
+        [DllImport(LIB_PATH)]
+        public static extern void FeasaCom_ClearDetectionFilters();
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_DetectSN(IntPtr[] pSerialNumbers, int Baudrate);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_IsPortAvailable(string DevPath);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_ListPortsDetected(IntPtr[] ListOfPortsDetected);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_ListPortsDetectedTxt(StringBuilder ListOfPortsDetected, string Delimiter);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SetResponseTimeout(uint Timeout);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_SetResponseTimeoutAuto(string DevPath, int Status);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetBaudrate(string DevPath);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetDeviceType(string DevPath, StringBuilder DeviceType);
+
+        [DllImport(LIB_PATH)]
+        public static extern void FeasaCom_GetError_Description(StringBuilder ErrorDescription);
+
+        [DllImport(LIB_PATH)]
+        public static extern void FeasaCom_GetError_DescriptionByPort(string DevPath, StringBuilder ErrorDescription);
+
+        [DllImport(LIB_PATH)]
+        public static extern void FeasaCom_GetError_DescriptionBySN(string SerialNumber, StringBuilder ErrorDescription);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetPortBySN(StringBuilder DevPath, string SerialNumber);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetSNByPort(StringBuilder SerialNumber, string DevPath);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_GetPortByID(string DeviceID, StringBuilder DevPath);
+
+
+	// Binning
+        [DllImport(LIB_PATH)]
+        public static extern void FeasaCom_Binning_GetBinFromVECFile(string Path, float x, float y, StringBuilder ResultBinName);
+
+
+	// UserCal functions
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_ResetIntensity(string DevPath, int Fiber, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_GetIntensityGain(string DevPath, int Fiber, ref int Gain);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_SetIntensityGain(string DevPath, int Fiber, int Gain, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_AdjustIntensity(string DevPath, int Fiber, int IntensityRef, int isPWM, int CaptureRange, int toFlash);
+
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_ResetxyOffsets(string DevPath, int Fiber, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_GetxyOffsets(string DevPath, int Fiber, ref float xOffset, ref float yOffset);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_SetxyOffsets(string DevPath, int Fiber, float xOffset, float yOffset, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_AdjustxyOffsets(string DevPath, int Fiber, float xRef, float yRef, int ToFlash);
+
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_ResetWavelengthOffset(string DevPath, int Fiber, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_GetWavelengthOffset(string DevPath, int Fiber, ref int WavelengthOffset);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_SetWavelengthOffset(string DevPath, int Fiber, int WavelengthOffset, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_AdjustWavelengthOffset(string DevPath, int Fiber, int WavelengthRef, int toFlash);
+
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_ResetAbsInt(string DevPath, int Fiber, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_GetAbsIntFactor(string DevPath, int Fiber, ref double Factor);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_SetAbsIntFactor(string DevPath, int Fiber, double Factor, int toFlash);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_AdjustAbsInt(string DevPath, int Fiber, double AbsIntRef, int toFlash);
+
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_ResetRGBAdj(string DevPath, int Fiber);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_TakeRGBCurrentValues(string DevPath, int Fiber, char Color);
+
+        [DllImport(LIB_PATH)]
+        public static extern int FeasaCom_UserCal_AdjustRGB(string DevPath, int Fiber, float xRefRed, float yRefRed, double AbsIntRefRed, float xRefGreen, float yRefGreen, double AbsIntRefGreen, float xRefBlue, float yRefBlue, double AbsIntRefBlue);
+
+

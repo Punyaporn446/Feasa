@@ -1,0 +1,24 @@
+﻿<Properties StartupItem="capture_and_read/capture_and_read.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="capture_and_read/Form1.Designer.cs">
+    <Files>
+      <File FileName="capture_and_read/Form1.Designer.cs" Line="151" Column="60" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="capture_and_read" expanded="True">
+            <Node name="capture_and_read" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Form1.cs" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

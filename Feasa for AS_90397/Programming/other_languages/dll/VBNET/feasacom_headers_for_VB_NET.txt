@@ -1,0 +1,581 @@
+    ' Note: feasacom.dll file has to be used for 32bit targets
+	Private Const DLL_PATH As String = "feasacom64.dll"
+
+    <DllImport(DLL_PATH)>
+    Public Sub FeasaCom_GetDLLVersion(
+        ByVal Version As StringBuilder
+        )
+    End Sub
+
+	' Basic Comm functions
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_Open( _
+        ByVal CommPort As Integer, ByVal Baudrate As String _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_Send( _
+        ByVal CommPort As Integer, ByVal Command As String, ByVal ResponseText As StringBuilder _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_Close( _
+        ByVal CommPort As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_OpenSN( _
+        ByVal SerialNumber As String, ByVal Baudrate As String _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_SendSN( _
+        ByVal SerialNumber As String, ByVal Command As String, ByVal ResponseText As StringBuilder _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_CloseSN( _
+        ByVal SerialNumber As String _
+        ) As Integer
+    End Function
+	
+
+	' Comm helper functions
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_SendToAll(
+        ByVal ReturnValues() As Integer, ByVal Command As String, <[In], Out> ByVal Responses() As String
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_SendToAll_NR(
+        ByVal ReturnValues() As Integer, ByVal Command As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_Open_Multi(
+        ByVal ReturnValues() As Integer, ByVal CommPorts() As Integer, ByVal nPorts As Integer, ByVal Baudrate As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_Close_Multi(
+        ByVal ReturnValues() As Integer, ByVal CommPorts() As Integer, ByVal nPorts As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_Send_Multi(
+        ByVal ReturnValues() As Integer, ByVal CommPorts() As Integer, ByVal nPorts As Integer, ByVal Commands() As String, <[In], Out> ByVal Responses() As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_Send_Multi_NR(
+        ByVal ReturnValues() As Integer, ByVal CommPorts() As Integer, ByVal nPorts As Integer, ByVal Commands As StringBuilder, ByVal CommandSeparator As Char
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_OpenSN_Multi(
+        ByVal ReturnValues() As Integer, ByVal SerialNumbers() As String, ByVal nSerials As Integer, ByVal Baudrate As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_CloseSN_Multi(
+        ByVal ReturnValues() As Integer, ByVal SerialNumbers() As String, ByVal nSerials As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_SendSN_Multi(
+        ByVal ReturnValues() As Integer, ByVal SerialNumbers() As String, ByVal nSerials As Integer, ByVal Commands() As String, <[In], Out> ByVal Responses() As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_CloseAll(
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_GetResponseByPort( _
+        ByVal CommPort As Integer, ByVal ResponseText As StringBuilder _
+        ) As Integer
+    End Function
+	
+	
+	' Test functions
+    <DllImport(DLL_PATH)> _
+    Public Function FeasaCom_Capture( _
+        ByVal CommPort As Integer, ByVal isPWM As Integer, ByVal CaptureRange As Integer, ByVal CapturePWMFrames As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_CaptureFromAll(
+        ByVal ReturnValues() As Integer, ByVal isPWM As Integer, ByVal CaptureRange As Integer, ByVal CapturePWMFrames As Integer
+        ) As Integer
+    End Function
+	
+	<DllImport(DLL_PATH)> _
+    Public Function FeasaCom_SpectrometerCapture( _
+        ByVal CommPort As Integer, ByVal isPWM As Integer, ByVal UseCustomExposure As Integer, ByVal ExposureTime As Single _
+        ) As Integer
+    End Function
+	
+	<DllImport(DLL_PATH)> _
+    Public Function FeasaCom_SpectrometerDark( _
+        ByVal CommPort As Integer, ByVal isPWM As Integer, ByVal UseCustomExposure As Integer, ByVal ExposureTime As Single _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_CaptureFromAllSpectrometers(
+        ByVal ReturnValues() As Integer, ByVal isPWM As Integer, ByVal UseCustomExposure As Integer, ByVal ExposureTime As Single
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_Sequence_Setup(
+        ByVal CommPort As Integer, ByVal StartDelay As Integer, ByVal CaptureTime As Integer, ByVal TimeBetweenCaptures As Integer, ByVal SampleCount As Integer, ByVal toFlash As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_PATH)>
+    Public Function FeasaCom_Sequence_Capture(
+        ByVal CommPort As Integer, ByVal Fiber As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_ReadIntensity(
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal IntensityValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_ReadxyI(
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal xValues() As Single, ByVal yValues() As Single, ByVal IntensityValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_ReadHSI(
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal HueValues() As Single, ByVal SaturationValues() As Integer, ByVal IntensityValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_ReadRGBI(
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal RedValues() As Byte, ByVal GreenValues() As Byte, ByVal BlueValues() As Byte, ByVal IntensityValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_ReadCCT(
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal CCTValues() As Integer, ByVal deltauvValues() As Single
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_ReadWavelength(
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal WavelengthValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_GetPattern(
+        ByVal CommPort As Integer, ByVal IntensityValues() As Integer, ByVal StatusCount As Integer, ByVal PatternTimes() As Integer, ByVal PatternIntensities() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_GetSweepingPattern(
+        ByVal CommPort As Integer, ByVal LEDCount As Integer, ByVal isOffToOn As Integer, ByVal LowTimes() As Integer, ByVal HighTimes() As Integer, ByVal IntensityValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_GetFrequency(
+        ByVal CommPort As Integer, ByVal IntensityValues() As Integer, ByRef Frequency As Single, ByRef DC As Single, ByRef CycleCount As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_FindTestSettings(
+        ByVal CommPort As Integer, ByVal TotalLEDCount As Integer, ByVal FiberToTest As Integer, ByVal SignalSpeed As Integer, ByVal BlinkingSpeed As Integer, ByVal MinCycleCount As Integer, ByVal TimeResolutionIsImportant As Integer, ByRef CaptureTime As Integer, ByRef WaitTime As Integer, ByRef SampleCount As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_SetPatternThresholdHigh(
+        ByVal CommPort As Integer, ByVal Intensity As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Sequence_SetPatternThresholdLow(
+        ByVal CommPort As Integer, ByVal Intensity As Integer
+        ) As Integer
+    End Function
+	
+	
+	
+	' Daisy-chain helper functions
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_DaisyChain_Add( _
+        ByVal CommPort As Integer, ByVal SerialNumber As String _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_DaisyChain_Del( _
+        ByVal CommPort As Integer, ByVal SerialNumber As String _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_DaisyChain_Clear( _
+        ByVal CommPort As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_DaisyChain_Send( _
+        ByVal CommPort As Integer, ByVal SerialNumber As String, ByVal Command As String, ByVal ResponseText As StringBuilder _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_DaisyChain_Capture( _
+        ByVal CommPort As Integer, ByVal isPWM As Integer, ByVal CaptureRange As Integer, ByVal CapturePWMFrames As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_DaisyChain_SpectrometerCapture( _
+        ByVal CommPort As Integer, ByVal isPWM As Integer, ByVal UsePresetExposure As Integer, ByVal ExposureTime As Single _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_DaisyChain_SpectrometerDark( _
+        ByVal CommPort As Integer, ByVal isPWM As Integer, ByVal UsePresetExposure As Integer, ByVal ExposureTime As Single _
+        ) As Integer
+    End Function
+	
+	
+	' External Trigger functions
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_ExternalTrigger_Listen( _
+        ByVal CommPort As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_ExternalTrigger_Abort( _
+        ByVal CommPort As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_ExternalTrigger_isFinished( _
+        ByVal CommPort As Integer _
+        ) As Integer
+    End Function
+	
+
+	' Comm handling functions
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_EnumPorts() As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Sub FeasaCom_EnumPorts_Filter( _
+        ByVal USB As Integer, ByVal RS232 As Integer, ByVal Bluetooth As Integer _
+        )
+    End Sub
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_IsConnected( _
+        ByVal SerialNumber As String, ByVal Baudrate As String _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_AreConnected(
+        ByVal PortNumbers() As Integer, ByVal SerialNumbers() As String, ByVal nSerials As Integer, ByVal Baudrate As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_AreConnectedS(
+        ByVal PortNumbers() As Integer, ByVal SerialNumbers As String, ByVal Baudrate As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_Detect(
+        ByVal CommPorts() As Integer, ByVal Baudrate As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_DetectSN(
+        <[In], Out> ByVal SerialNumbers() As String, ByVal Baudrate As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Sub FeasaCom_AddDetectionFilter(
+        ByVal Filter As String
+        )
+    End Sub
+
+    <DllImport(DLL_FEASACOM)>
+    Public Sub FeasaCom_ClearDetectionFilters(
+        )
+    End Sub
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_IsPortAvailable( _
+        ByVal CommPort As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_ListPortsDetected( _
+        ByRef ListOfPortsDetected() As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_ListPortsDetectedTxt( _
+        ByVal ListOfPortsDetected As StringBuilder, ByVal Delimiter As String _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_SetResponseTimeout( _
+        ByVal Timeout As UInteger _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_SetResponseTimeoutAuto( _
+        ByVal CommPort As Integer, ByVal Status As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_GetBaudrate( _
+        ByVal CommPort As Integer _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_GetDeviceType( _
+        ByVal CommPort As Integer, ByVal DeviceType As StringBuilder _
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)> _
+    Public Sub FeasaCom_GetError_Description( _
+        ByVal ErrorDescription As StringBuilder _
+        )
+    End Sub
+
+    <DllImport(DLL_FEASACOM)>
+    Public Sub FeasaCom_GetError_DescriptionByPort(
+        ByVal CommPort As Integer, ByVal ErrorDescription As StringBuilder
+        )
+    End Sub
+
+    <DllImport(DLL_FEASACOM)>
+    Public Sub FeasaCom_GetError_DescriptionBySN(
+        ByVal SerialNumber As String, ByVal ErrorDescription As StringBuilder
+        )
+    End Sub
+	
+	<DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_GetPortBySN(
+        ByVal SerialNumber As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_GetSNByPort(
+        ByVal SerialNumber As StringBuilder, ByVal CommPort As Integer
+        ) As Integer
+    End Function
+	
+	<DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_GetPortByID(
+        ByVal DeviceID As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_GetOpenedPorts(
+        ByVal CommPorts() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_GetOpenedPortsS(
+        ByVal CommPortsTxt As StringBuilder, ByVal Delimiter As Char
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_OpenProject(
+        ByVal Path As String
+        ) As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_CloseProject() As Integer
+    End Function
+
+    <DllImport(DLL_FEASACOM)>
+    Public Function FeasaCom_SendByID(
+        ByVal DeviceID As String, ByVal Command As String, ByVal ResponseText As StringBuilder _
+        ) As Integer
+    End Function
+	
+
+	' Binning
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_Binning_GetBinFromVECFile( _
+        ByVal Path As String, ByVal x As Single, ByVal y As Single, ByVal ResultBinName As StringBuilder _
+        ) As Integer
+    End Function
+	
+	
+	' UserCal functions
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_ResetIntensity( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_GetIntensityGain( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByRef Gain As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_SetIntensityGain( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal Gain As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_AdjustIntensity( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal IntensityRef As Integer, ByVal isPWM As Integer, ByVal CaptureRange As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_ResetAbsInt( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_GetAbsIntFactor( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByRef Factor As Double _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_SetAbsIntFactor( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal Factor As Double, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_AdjustAbsInt( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal AbsIntRef As Double, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_ResetWavelengthOffset( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_GetWavelengthOffset( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByRef WavelengthOffset As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_SetWavelengthOffset( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal WavelengthOffset As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_AdjustWavelengthOffset( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal WavelengthRef As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_ResetxyOffsets( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_GetxyOffsets( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByRef xOffset As Single, ByRef yOffset As Single _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_SetxyOffsets( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal xOffset As Single, ByVal yOffset As Single, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_AdjustxyOffsets( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal xRef As Single, ByVal yRef As Single, ByVal toFlash As Integer _
+        ) As Integer
+    End Function
+	
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_ResetRGBAdj( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_TakeRGBCurrentValues( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal Color As Char _
+        ) As Integer
+    End Function
+	
+    <DllImport(DLL_FEASACOM)> _
+    Public Function FeasaCom_UserCal_AdjustRGB( _
+        ByVal CommPort As Integer, ByVal Fiber As Integer, ByVal xRefRed As Single, ByVal yRefRed As Single, ByVal AbsIntRefRed As Double, ByVal xRefGreen As Single, ByVal yRefGreen As Single, ByVal AbsIntRefGreen As Double, ByVal xRefBlue As Single, ByVal yRefBlue As Single, ByVal AbsIntRefBlue As Double _
+        ) As Integer
+    End Function
+	

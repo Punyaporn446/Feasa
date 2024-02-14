@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1559911320 source:/home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/10_fast_test_multithread/main.cpp
+	<stdlib.h>
+	<dlfcn.h>
+	<stdio.h>
+	<string.h>
+	<string>
+	<time.h>
+	"feasacom.h"
+
+1559910594 /home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/10_fast_test_multithread/feasacom.h
+
+1559911224 source:/home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/10_fast_test_multithread/feasacom.cpp
+	<stdio.h>
+	<stdlib.h>
+	<dlfcn.h>
+	<string.h>
+	"feasacom.h"
+

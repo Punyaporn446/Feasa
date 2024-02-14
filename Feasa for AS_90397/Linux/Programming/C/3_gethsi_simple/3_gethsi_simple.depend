@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1464614683 source:/home/mc/Documents/programming_examples/C/3_gethsi_simple/main.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<dlfcn.h>
+	"feasacom.h"
+
+1464613373 /home/mc/Documents/programming_examples/C/3_gethsi_simple/feasacom.h
+

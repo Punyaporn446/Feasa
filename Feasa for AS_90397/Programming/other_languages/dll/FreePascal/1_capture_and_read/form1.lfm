@@ -1,0 +1,164 @@
+object frmMain: TfrmMain
+  Left = 467
+  Height = 321
+  Top = 177
+  Width = 368
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Capture & Read - (c) Feasa Enterprises Ltd'
+  ClientHeight = 321
+  ClientWidth = 368
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object Label2: TLabel
+    Left = 0
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Communications Setup'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label3: TLabel
+    Left = 183
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Read && Capture'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 287
+    Top = 24
+    Width = 182
+    ClientHeight = 287
+    ClientWidth = 182
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 22
+      Height = 15
+      Top = 35
+      Width = 56
+      Caption = 'COM Port:'
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 8
+      Height = 72
+      Top = 102
+      Width = 161
+      AutoSize = False
+      Caption = 'CAUTION: the DLL file should be located in the same project folder of the EXE file, or in the system32 folder.'
+      ParentBidiMode = False
+      ParentColor = False
+      WordWrap = True
+    end
+    object lstPort: TComboBox
+      Left = 83
+      Height = 23
+      Top = 32
+      Width = 54
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 183
+    Height = 287
+    Top = 24
+    Width = 182
+    ClientHeight = 287
+    ClientWidth = 182
+    TabOrder = 1
+    object Label8: TLabel
+      Left = 9
+      Height = 64
+      Top = 16
+      Width = 161
+      AutoSize = False
+      Caption = 'Press the button shown below to execute a capture and read the result.'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object Label7: TLabel
+      Left = 15
+      Height = 16
+      Top = 176
+      Width = 48
+      Caption = 'Results:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 16
+      Height = 15
+      Top = 95
+      Width = 29
+      Caption = 'Fiber:'
+      ParentColor = False
+    end
+    object cmdCaptureAndRead: TButton
+      Left = 9
+      Height = 50
+      Top = 120
+      Width = 158
+      Caption = 'CAPTURE AND READ'
+      OnClick = cmdCaptureAndReadClick
+      TabOrder = 0
+    end
+    object txtLog: TEdit
+      Left = 13
+      Height = 23
+      Top = 200
+      Width = 155
+      TabOrder = 1
+    end
+    object txtFiber: TEdit
+      Left = 49
+      Height = 23
+      Top = 91
+      Width = 32
+      MaxLength = 2
+      TabOrder = 2
+      Text = '1'
+    end
+  end
+end

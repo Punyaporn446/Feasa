@@ -1,0 +1,170 @@
+object frmMain: TfrmMain
+  Left = 264
+  Height = 443
+  Top = 162
+  Width = 539
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Capture Modes - (c) Feasa Enterprises Ltd'
+  ClientHeight = 443
+  ClientWidth = 539
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object GroupBox1: TGroupBox
+    Left = 280
+    Height = 75
+    Top = 8
+    Width = 250
+    Caption = 'Communications'
+    ClientHeight = 55
+    ClientWidth = 246
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 17
+      Height = 15
+      Top = 15
+      Width = 56
+      Caption = 'COM Port:'
+      ParentColor = False
+    end
+    object lstPort: TComboBox
+      Left = 76
+      Height = 23
+      Top = 11
+      Width = 54
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 280
+    Height = 344
+    Top = 88
+    Width = 248
+    Caption = 'Commands'
+    ClientHeight = 324
+    ClientWidth = 244
+    TabOrder = 1
+    object Label9: TLabel
+      Left = 9
+      Height = 15
+      Top = 250
+      Width = 74
+      Caption = 'Fibers to read:'
+      ParentColor = False
+    end
+    object cmdCapture: TButton
+      Left = 9
+      Height = 34
+      Top = 128
+      Width = 227
+      Caption = 'CAPTURE'
+      OnClick = cmdCaptureClick
+      TabOrder = 0
+    end
+    object cmdRead: TButton
+      Left = 9
+      Height = 34
+      Top = 274
+      Width = 232
+      Caption = 'READ DATA'
+      OnClick = cmdReadClick
+      TabOrder = 1
+    end
+    object lstFibers: TComboBox
+      Left = 89
+      Height = 23
+      Top = 248
+      Width = 46
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object Label10: TLabel
+      Left = 6
+      Height = 15
+      Top = 10
+      Width = 79
+      Caption = 'Capture Mode:'
+      ParentColor = False
+    end
+    object lstCaptureMode: TComboBox
+      Left = 9
+      Height = 23
+      Top = 32
+      Width = 229
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 3
+    end
+    object Label15: TLabel
+      Left = 6
+      Height = 15
+      Top = 67
+      Width = 166
+      Caption = 'Capture Range (manual/PWM):'
+      ParentColor = False
+    end
+    object lstCaptureRange: TComboBox
+      Left = 177
+      Height = 23
+      Top = 64
+      Width = 61
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 4
+    end
+    object Label16: TLabel
+      Left = 6
+      Height = 15
+      Top = 99
+      Width = 81
+      Caption = 'Frames (PWM):'
+      ParentColor = False
+    end
+    object lstCaptureFrames: TComboBox
+      Left = 177
+      Height = 23
+      Top = 96
+      Width = 59
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 5
+    end
+    object cmdCaptureEasy: TButton
+      Left = 11
+      Height = 34
+      Top = 168
+      Width = 227
+      Caption = 'CAPTURE (easy method)'
+      OnClick = cmdCaptureEasyClick
+      TabOrder = 6
+    end
+  end
+  object StringGrid1: TStringGrid
+    Left = 8
+    Height = 424
+    Top = 8
+    Width = 264
+    AutoEdit = False
+    ColCount = 4
+    Columns = <    
+      item
+        Title.Caption = 'Title'
+      end    
+      item
+        Title.Caption = 'Title'
+      end    
+      item
+        Title.Caption = 'Title'
+      end    
+      item
+        Title.Caption = 'Title'
+      end>
+    FixedCols = 0
+    RowCount = 21
+    TabOrder = 2
+  end
+end

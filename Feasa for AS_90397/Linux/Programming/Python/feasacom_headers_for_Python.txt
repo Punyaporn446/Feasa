@@ -1,0 +1,397 @@
+#Note: libfeasacom.so file has to be used for 32bit targets
+
+self.FeasaLIB = cdll.LoadLibrary('libfeasacom.x86_64.so')
+
+self.FeasaCom_GetLibraryVersion = self.FeasaLIB['FeasaCom_GetLibraryVersion']
+self.FeasaCom_GetLibraryVersion.argtypes = [ctypes.c_char_p]
+
+# Basic Comm functions
+self.FeasaCom_Open = self.FeasaLIB['FeasaCom_Open']
+self.FeasaCom_Open.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_Open.restype = ctypes.c_int
+
+self.FeasaCom_Send = self.FeasaLIB['FeasaCom_Send']
+self.FeasaCom_Send.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_Send.restype = ctypes.c_int
+
+self.FeasaCom_Close = self.FeasaLIB['FeasaCom_Close']
+self.FeasaCom_Close.argtypes = [ctypes.c_char_p]
+self.FeasaCom_Close.restype = ctypes.c_int
+
+self.FeasaCom_OpenSN = self.FeasaLIB['FeasaCom_OpenSN']
+self.FeasaCom_OpenSN.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_OpenSN.restype = ctypes.c_int
+
+self.FeasaCom_SendSN = self.FeasaLIB['FeasaCom_SendSN']
+self.FeasaCom_SendSN.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_SendSN.restype = ctypes.c_int
+
+self.FeasaCom_CloseSN = self.FeasaLIB['FeasaCom_CloseSN']
+self.FeasaCom_CloseSN.argtypes = [ctypes.c_char_p]
+self.FeasaCom_CloseSN.restype = ctypes.c_int
+
+
+# Comm helper functions
+self.FeasaCom_SendToAll = self.FeasaLIB['FeasaCom_SendToAll']
+self.FeasaCom_SendToAll.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_char_p, ctypes.POINTER(ctypes.c_char_p)]
+self.FeasaCom_SendToAll.restype = ctypes.c_int
+
+self.FeasaCom_SendToAll_NR = self.FeasaLIB['FeasaCom_SendToAll_NR']
+self.FeasaCom_SendToAll_NR.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_char_p]
+self.FeasaCom_SendToAll_NR.restype = ctypes.c_int
+
+self.FeasaCom_Open_Multi = self.FeasaLIB['FeasaCom_Open_Multi']
+self.FeasaCom_Open_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Open_Multi.restype = ctypes.c_int
+
+self.FeasaCom_Close_Multi = self.FeasaLIB['FeasaCom_Close_Multi']
+self.FeasaCom_Close_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int]
+self.FeasaCom_Close_Multi.restype = ctypes.c_int
+
+self.FeasaCom_Send_Multi = self.FeasaLIB['FeasaCom_Send_Multi']
+self.FeasaCom_Send_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_char_p)]
+self.FeasaCom_Send_Multi.restype = ctypes.c_int
+
+self.FeasaCom_Send_Multi_NR = self.FeasaLIB['FeasaCom_Send_Multi_NR']
+self.FeasaCom_Send_Multi_NR.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_char]
+self.FeasaCom_Send_Multi_NR.restype = ctypes.c_int
+
+self.FeasaCom_OpenSN_Multi = self.FeasaLIB['FeasaCom_OpenSN_Multi']
+self.FeasaCom_OpenSN_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.c_int]
+self.FeasaCom_OpenSN_Multi.restype = ctypes.c_int
+
+self.FeasaCom_CloseSN_Multi = self.FeasaLIB['FeasaCom_CloseSN_Multi']
+self.FeasaCom_CloseSN_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int]
+self.FeasaCom_CloseSN_Multi.restype = ctypes.c_int
+
+self.FeasaCom_SendSN_Multi = self.FeasaLIB['FeasaCom_SendSN_Multi']
+self.FeasaCom_SendSN_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_char_p)]
+self.FeasaCom_SendSN_Multi.restype = ctypes.c_int
+
+self.FeasaCom_CloseAll = self.FeasaLIB['FeasaCom_CloseAll']
+self.FeasaCom_CloseAll.restype = ctypes.c_int
+
+self.FeasaCom_GetResponseByPort = self.FeasaLIB['FeasaCom_GetResponseByPort']
+self.FeasaCom_GetResponseByPort.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_GetResponseByPort.restype = ctypes.c_int
+
+self.FeasaCom_GetOpenedPorts = self.FeasaLIB['FeasaCom_GetOpenedPorts']
+self.FeasaCom_GetOpenedPorts.argtypes = [ctypes.POINTER(ctypes.c_char_p)]
+self.FeasaCom_GetOpenedPorts.restype = ctypes.c_int
+
+self.FeasaCom_GetOpenedPortsS = self.FeasaLIB['FeasaCom_GetOpenedPortsS']
+self.FeasaCom_GetOpenedPortsS.argtypes = [ctypes.c_char_p, ctypes.c_char]
+self.FeasaCom_GetOpenedPortsS.restype = ctypes.c_int
+
+self.FeasaCom_OpenProject = self.FeasaLIB['FeasaCom_OpenProject']
+self.FeasaCom_OpenProject.argtypes = [ctypes.c_char_p]
+self.FeasaCom_OpenProject.restype = ctypes.c_int
+
+self.FeasaCom_CloseProject = self.FeasaLIB['FeasaCom_CloseProject']
+self.FeasaCom_CloseProject.restype = ctypes.c_int
+
+self.FeasaCom_SendByID = self.FeasaLIB['FeasaCom_SendByID']
+self.FeasaCom_SendByID.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_SendByID.restype = ctypes.c_int
+
+
+# Test functions
+self.FeasaCom_Capture = self.FeasaLIB['FeasaCom_Capture']
+self.FeasaCom_Capture.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Capture.restype = ctypes.c_int
+                
+self.FeasaCom_CaptureFromAll = self.FeasaLIB['FeasaCom_CaptureFromAll']
+self.FeasaCom_CaptureFromAll.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_CaptureFromAll.restype = ctypes.c_int
+
+self.FeasaCom_SpectrometerCapture = self.FeasaLIB['FeasaCom_SpectrometerCapture']
+self.FeasaCom_SpectrometerCapture.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_SpectrometerCapture.restype = ctypes.c_int
+
+self.FeasaCom_SpectrometerDark = self.FeasaLIB['FeasaCom_SpectrometerDark']
+self.FeasaCom_SpectrometerDark.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_SpectrometerDark.restype = ctypes.c_int
+                
+self.FeasaCom_CaptureFromAllSpectrometers = self.FeasaLIB['FeasaCom_CaptureFromAllSpectrometers']
+self.FeasaCom_CaptureFromAllSpectrometers.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_CaptureFromAllSpectrometers.restype = ctypes.c_int
+                
+self.FeasaCom_Sequence_Setup = self.FeasaLIB['FeasaCom_Sequence_Setup']
+self.FeasaCom_Sequence_Setup.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Sequence_Setup.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_Capture = self.FeasaLIB['FeasaCom_Sequence_Capture']
+self.FeasaCom_Sequence_Capture.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_Sequence_Capture.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadIntensity = self.FeasaLIB['FeasaCom_Sequence_ReadIntensity']
+self.FeasaCom_Sequence_ReadIntensity.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadIntensity.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadxyI = self.FeasaLIB['FeasaCom_Sequence_ReadxyI']
+self.FeasaCom_Sequence_ReadxyI.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadxyI.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadHSI = self.FeasaLIB['FeasaCom_Sequence_ReadHSI']
+self.FeasaCom_Sequence_ReadHSI.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadHSI.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadRGBI = self.FeasaLIB['FeasaCom_Sequence_ReadRGBI']
+self.FeasaCom_Sequence_ReadRGBI.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadRGBI.restype = ctypes.c_int
+
+self.Sequence_ReadCCT = self.FeasaLIB['FeasaCom_Sequence_ReadCCT']
+self.Sequence_ReadCCT.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_float)]
+self.Sequence_ReadCCT.restype = ctypes.c_int
+
+self.Sequence_ReadWavelength = self.FeasaLIB['FeasaCom_Sequence_ReadWavelength']
+self.Sequence_ReadWavelength.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.Sequence_ReadWavelength.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_GetPattern = self.FeasaLIB['FeasaCom_Sequence_GetPattern']
+self.FeasaCom_Sequence_GetPattern.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_GetPattern.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_GetSweepingPattern = self.FeasaLIB['FeasaCom_Sequence_GetSweepingPattern']
+self.FeasaCom_Sequence_GetSweepingPattern.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_GetSweepingPattern.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_GetFrequency = self.FeasaLIB['FeasaCom_Sequence_GetFrequency']
+self.FeasaCom_Sequence_GetFrequency.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_GetFrequency.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_FindTestSettings = self.FeasaLIB['FeasaCom_Sequence_FindTestSettings']
+self.FeasaCom_Sequence_FindTestSettings.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_FindTestSettings.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_SetPatternThresholdHigh = self.FeasaLIB['FeasaCom_Sequence_SetPatternThresholdHigh']
+self.FeasaCom_Sequence_SetPatternThresholdHigh.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_Sequence_SetPatternThresholdHigh.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_SetPatternThresholdLow = self.FeasaLIB['FeasaCom_Sequence_SetPatternThresholdLow']
+self.FeasaCom_Sequence_SetPatternThresholdLow.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_Sequence_SetPatternThresholdLow.restype = ctypes.c_int
+
+
+# Daisy-chain functions
+self.FeasaCom_DaisyChain_Add = self.FeasaLIB['FeasaCom_DaisyChain_Add']
+self.FeasaCom_DaisyChain_Add.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_DaisyChain_Add.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Del = self.FeasaLIB['FeasaCom_DaisyChain_Del']
+self.FeasaCom_DaisyChain_Del.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_DaisyChain_Del.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Clear = self.FeasaLIB['FeasaCom_DaisyChain_Clear']
+self.FeasaCom_DaisyChain_Clear.argtypes = [ctypes.c_char_p]
+self.FeasaCom_DaisyChain_Clear.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Send = self.FeasaLIB['FeasaCom_DaisyChain_Send']
+self.FeasaCom_DaisyChain_Send.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_DaisyChain_Send.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Capture = self.FeasaLIB['FeasaCom_DaisyChain_Capture']
+self.FeasaCom_DaisyChain_Capture.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_DaisyChain_Capture.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_SpectrometerCapture = self.FeasaLIB['FeasaCom_DaisyChain_SpectrometerCapture']
+self.FeasaCom_DaisyChain_SpectrometerCapture.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_DaisyChain_SpectrometerCapture.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_SpectrometerDark = self.FeasaLIB['FeasaCom_DaisyChain_SpectrometerDark']
+self.FeasaCom_DaisyChain_SpectrometerDark.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_DaisyChain_SpectrometerDark.restype = ctypes.c_int
+
+
+# External Trigger functions
+self.FeasaCom_ExternalTrigger_Listen = self.FeasaLIB['FeasaCom_ExternalTrigger_Listen']
+self.FeasaCom_ExternalTrigger_Listen.argtypes = [ctypes.c_char_p]
+self.FeasaCom_ExternalTrigger_Listen.restype = ctypes.c_int
+
+self.FeasaCom_ExternalTrigger_Abort = self.FeasaLIB['FeasaCom_ExternalTrigger_Abort']
+self.FeasaCom_ExternalTrigger_Abort.argtypes = [ctypes.c_char_p]
+self.FeasaCom_ExternalTrigger_Abort.restype = ctypes.c_int
+
+self.FeasaCom_ExternalTrigger_isFinished = self.FeasaLIB['FeasaCom_ExternalTrigger_isFinished']
+self.FeasaCom_ExternalTrigger_isFinished.argtypes = [ctypes.c_char_p]
+self.FeasaCom_ExternalTrigger_isFinished.restype = ctypes.c_int
+
+self.FeasaCom_ExternalTrigger_Enable = self.FeasaLIB['FeasaCom_ExternalTrigger_Enable']
+self.FeasaCom_ExternalTrigger_Enable.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_ExternalTrigger_Enable.restype = ctypes.c_int
+
+self.FeasaCom_ExternalTrigger_Disable = self.FeasaLIB['FeasaCom_ExternalTrigger_Disable']
+self.FeasaCom_ExternalTrigger_Disable.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_ExternalTrigger_Disable.restype = ctypes.c_int
+
+
+# Comm handling functions
+self.FeasaCom_EnumPorts = self.FeasaLIB['FeasaCom_EnumPorts']
+self.FeasaCom_EnumPorts.restype = ctypes.c_int
+
+self.FeasaCom_IsConnected = self.FeasaLIB['FeasaCom_IsConnected']
+self.FeasaCom_IsConnected.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_IsConnected.restype = ctypes.c_int
+
+self.FeasaCom_AreConnected = self.FeasaLIB['FeasaCom_AreConnected']
+self.FeasaCom_AreConnected.argtypes = [ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.c_int]
+self.FeasaCom_AreConnected.restype = ctypes.c_int
+
+self.FeasaCom_AreConnectedS = self.FeasaLIB['FeasaCom_AreConnectedS']
+self.FeasaCom_AreConnectedS.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_AreConnectedS.restype = ctypes.c_int
+
+self.FeasaCom_Detect = self.FeasaLIB['FeasaCom_Detect']
+self.FeasaCom_Detect.argtypes = [ctypes.POINTER(ctypes.c_char_p), ctypes.c_int]
+self.FeasaCom_Detect.restype = ctypes.c_int
+
+self.FeasaCom_DetectS = self.FeasaLIB['FeasaCom_DetectS']
+self.FeasaCom_DetectS.argtypes = [ctypes.c_char_p, ctypes.c_char, ctypes.c_int]
+self.FeasaCom_DetectS.restype = ctypes.c_int
+
+self.FeasaCom_DetectSN = self.FeasaLIB['FeasaCom_DetectSN']
+self.FeasaCom_DetectSN.argtypes = [ctypes.POINTER(ctypes.c_char_p), ctypes.c_int]
+self.FeasaCom_DetectSN.restype = ctypes.c_int
+
+self.FeasaCom_AddDetectionFilter = self.FeasaLIB['FeasaCom_AddDetectionFilter']
+self.FeasaCom_AddDetectionFilter.argtypes = [ctypes.c_char_p]
+
+self.FeasaCom_ClearDetectionFilters = self.FeasaLIB['FeasaCom_ClearDetectionFilters']
+
+self.FeasaCom_IsPortAvailable = self.FeasaLIB['FeasaCom_IsPortAvailable']
+self.FeasaCom_IsPortAvailable.argtypes = [ctypes.c_char_p]
+self.FeasaCom_IsPortAvailable.restype = ctypes.c_int
+
+self.FeasaCom_ListPortsDetected = self.FeasaLIB['FeasaCom_ListPortsDetected']
+self.FeasaCom_ListPortsDetected.argtypes = [POINTER(ctypes.c_char_p)]
+self.FeasaCom_ListPortsDetected.restype = ctypes.c_int
+
+self.FeasaCom_ListPortsDetectedTxt = self.FeasaLIB['FeasaCom_ListPortsDetectedTxt']
+self.FeasaCom_ListPortsDetectedTxt.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_ListPortsDetectedTxt.restype = ctypes.c_int
+
+self.FeasaCom_SetResponseTimeout = self.FeasaLIB['FeasaCom_SetResponseTimeout']
+self.FeasaCom_SetResponseTimeout.argtypes = [ctypes.c_uint]
+self.FeasaCom_SetResponseTimeout.restype = ctypes.c_int
+
+self.FeasaCom_SetResponseTimeoutAuto = self.FeasaLIB['FeasaCom_SetResponseTimeoutAuto']
+self.FeasaCom_SetResponseTimeoutAuto.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_SetResponseTimeoutAuto.restype = ctypes.c_int
+
+self.FeasaCom_GetBaudrate = self.FeasaLIB['FeasaCom_GetBaudrate']
+self.FeasaCom_GetBaudrate.argtypes = [ctypes.c_char_p]
+self.FeasaCom_GetBaudrate.restype = ctypes.c_long
+
+self.FeasaCom_GetDeviceType = self.FeasaLIB['FeasaCom_GetDeviceType']
+self.FeasaCom_GetDeviceType.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_GetDeviceType.restype = ctypes.c_int
+
+self.FeasaCom_GetError_Description = self.FeasaLIB['FeasaCom_GetError_Description']
+self.FeasaCom_GetError_Description.argtypes = [ctypes.c_char_p]
+
+self.FeasaCom_GetError_DescriptionByPort = self.FeasaLIB['FeasaCom_GetError_DescriptionByPort']
+self.FeasaCom_GetError_DescriptionByPort.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+
+self.FeasaCom_GetError_DescriptionBySN = self.FeasaLIB['FeasaCom_GetError_DescriptionBySN']
+self.FeasaCom_GetError_DescriptionBySN.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+
+self.FeasaCom_GetPortBySN = self.FeasaLIB['FeasaCom_GetPortBySN']
+self.FeasaCom_GetPortBySN.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_GetPortBySN.restype = ctypes.c_int
+
+self.FeasaCom_GetSNByPort = self.FeasaLIB['FeasaCom_GetSNByPort']
+self.FeasaCom_GetSNByPort.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_GetSNByPort.restype = ctypes.c_int
+
+self.FeasaCom_GetPortByID = self.FeasaLIB['FeasaCom_GetPortByID']
+self.FeasaCom_GetPortByID.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+
+
+# Binning
+self.FeasaCom_Binning_GetBinFromVECFile = self.FeasaLIB['FeasaCom_Binning_GetBinFromVECFile']
+self.FeasaCom_Binning_GetBinFromVECFile.argtypes = [ctypes.c_char_p, ctypes.c_float, ctypes.c_float, ctypes.c_char_p]
+self.FeasaCom_Binning_GetBinFromVECFile.restype = ctypes.c_int
+		
+
+# UserCal functions
+self.FeasaCom_UserCal_ResetIntensity = self.FeasaLIB['FeasaCom_UserCal_ResetIntensity']
+self.FeasaCom_UserCal_ResetIntensity.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetIntensity.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetIntensityGain = self.FeasaLIB['FeasaCom_UserCal_GetIntensityGain']
+self.FeasaCom_UserCal_GetIntensityGain.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_UserCal_GetIntensityGain.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetIntensityGain = self.FeasaLIB['FeasaCom_UserCal_SetIntensityGain']
+self.FeasaCom_UserCal_SetIntensityGain.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_SetIntensityGain.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustIntensity = self.FeasaLIB['FeasaCom_UserCal_AdjustIntensity']
+self.FeasaCom_UserCal_AdjustIntensity.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustIntensity.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetAbsInt = self.FeasaLIB['FeasaCom_UserCal_ResetAbsInt']
+self.FeasaCom_UserCal_ResetAbsInt.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetAbsInt.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetAbsIntFactor = self.FeasaLIB['FeasaCom_UserCal_GetAbsIntFactor']
+self.FeasaCom_UserCal_GetAbsIntFactor.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_double)]
+self.FeasaCom_UserCal_GetAbsIntFactor.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetAbsIntFactor = self.FeasaLIB['FeasaCom_UserCal_SetAbsIntFactor']
+self.FeasaCom_UserCal_SetAbsIntFactor.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_double, ctypes.c_int]
+self.FeasaCom_UserCal_SetAbsIntFactor.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustAbsInt = self.FeasaLIB['FeasaCom_UserCal_AdjustAbsInt']
+self.FeasaCom_UserCal_AdjustAbsInt.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_double, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustAbsInt.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetWavelengthOffset = self.FeasaLIB['FeasaCom_UserCal_ResetWavelengthOffset']
+self.FeasaCom_UserCal_ResetWavelengthOffset.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetWavelengthOffset.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetWavelengthOffset = self.FeasaLIB['FeasaCom_UserCal_GetWavelengthOffset']
+self.FeasaCom_UserCal_GetWavelengthOffset.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_UserCal_GetWavelengthOffset.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetWavelengthOffset = self.FeasaLIB['FeasaCom_UserCal_SetWavelengthOffset']
+self.FeasaCom_UserCal_SetWavelengthOffset.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_SetWavelengthOffset.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustWavelengthOffset = self.FeasaLIB['FeasaCom_UserCal_AdjustWavelengthOffset']
+self.FeasaCom_UserCal_AdjustWavelengthOffset.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustWavelengthOffset.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetxyOffsets = self.FeasaLIB['FeasaCom_UserCal_ResetxyOffsets']
+self.FeasaCom_UserCal_ResetxyOffsets.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetxyOffsets.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetxyOffsets = self.FeasaLIB['FeasaCom_UserCal_GetxyOffsets']
+self.FeasaCom_UserCal_GetxyOffsets.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float)]
+self.FeasaCom_UserCal_GetxyOffsets.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetxyOffsets = self.FeasaLIB['FeasaCom_UserCal_SetxyOffsets']
+self.FeasaCom_UserCal_SetxyOffsets.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_float, ctypes.c_float, ctypes.c_int]
+self.FeasaCom_UserCal_SetxyOffsets.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustxyOffsets = self.FeasaLIB['FeasaCom_UserCal_AdjustxyOffsets']
+self.FeasaCom_UserCal_AdjustxyOffsets.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_float, ctypes.c_float, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustxyOffsets.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetRGBAdj = self.FeasaLIB['FeasaCom_UserCal_ResetRGBAdj']
+self.FeasaCom_UserCal_ResetRGBAdj.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_UserCal_ResetRGBAdj.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_TakeRGBCurrentValues = self.FeasaLIB['FeasaCom_UserCal_TakeRGBCurrentValues']
+self.FeasaCom_UserCal_TakeRGBCurrentValues.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_char]
+self.FeasaCom_UserCal_TakeRGBCurrentValues.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustRGB = self.FeasaLIB['FeasaCom_UserCal_AdjustRGB']
+self.FeasaCom_UserCal_AdjustRGB.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_float, ctypes.c_float, ctypes.c_double, ctypes.c_float, ctypes.c_float, ctypes.c_double, ctypes.c_float, ctypes.c_float, ctypes.c_double]
+self.FeasaCom_UserCal_AdjustRGB.restype = ctypes.c_int
+
+

@@ -1,0 +1,147 @@
+object frmMain: TfrmMain
+  Left = 369
+  Height = 321
+  Top = 158
+  Width = 370
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Get Serial - (c) Feasa Enterprises Ltd'
+  ClientHeight = 321
+  ClientWidth = 370
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object Label2: TLabel
+    Left = 0
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Communications Setup'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label3: TLabel
+    Left = 183
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Commands'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 288
+    Top = 24
+    Width = 182
+    ClientHeight = 288
+    ClientWidth = 182
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 24
+      Height = 15
+      Top = 42
+      Width = 56
+      Caption = 'COM Port:'
+      ParentColor = False
+    end
+    object lstPort: TComboBox
+      Left = 83
+      Height = 23
+      Top = 40
+      Width = 54
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object Label5: TLabel
+      Left = 8
+      Height = 72
+      Top = 102
+      Width = 161
+      AutoSize = False
+      Caption = 'CAUTION: the DLL file should be located in the same project folder of the EXE file, or in the system32 folder.'
+      ParentBidiMode = False
+      ParentColor = False
+      WordWrap = True
+    end
+  end
+  object Panel2: TPanel
+    Left = 183
+    Height = 288
+    Top = 24
+    Width = 182
+    ClientHeight = 288
+    ClientWidth = 182
+    TabOrder = 1
+    object Label8: TLabel
+      Left = 9
+      Height = 88
+      Top = 16
+      Width = 161
+      AutoSize = False
+      Caption = 'Press the button shown below to retrieve the Serial Number of the Led Analyser Connected to the selected port.'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object Label7: TLabel
+      Left = 15
+      Height = 16
+      Top = 176
+      Width = 48
+      Caption = 'Results:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object cmdCaptureAndRead: TButton
+      Left = 9
+      Height = 50
+      Top = 111
+      Width = 158
+      Caption = 'GET SERIAL'
+      OnClick = cmdCaptureAndReadClick
+      TabOrder = 0
+    end
+    object txtLog: TEdit
+      Left = 13
+      Height = 23
+      Top = 197
+      Width = 155
+      TabOrder = 1
+    end
+  end
+end

@@ -1,0 +1,82 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfrmMain','FORMDATA',[
+  'TPF0'#8'TfrmMain'#7'frmMain'#4'Left'#3#0#1#6'Height'#3#189#1#3'Top'#2't'#5'W'
+  +'idth'#3'.'#3#11'BorderIcons'#11#12'biSystemMenu'#10'biMinimize'#0#11'Border'
+  +'Style'#7#8'bsSingle'#7'Caption'#6'&FastTestMT - (c) Feasa Enterprises Ltd'
+  +#12'ClientHeight'#3#189#1#11'ClientWidth'#3'.'#3#8'OnCreate'#7#10'FormCreate'
+  +#8'Position'#7#15'poDesktopCenter'#10'LCLVersion'#6#7'1.8.2.0'#0#6'TLabel'#7
+  +'Label11'#4'Left'#2#8#6'Height'#2#15#3'Top'#2#8#5'Width'#2#27#7'Caption'#6#4
+  +'Red:'#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7#7'clBlack'#11'Fo'
+  +'nt.Height'#2#243#9'Font.Name'#6#5'Arial'#10'Font.Pitch'#7#10'fpVariable'#12
+  +'Font.Quality'#7#7'fqDraft'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLabel'
+  +#7'Label12'#4'Left'#2'8'#6'Height'#2#15#3'Top'#2#8#5'Width'#2'#'#7'Caption'#6
+  +#5'Green'#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7#7'clBlack'#11
+  +'Font.Height'#2#243#9'Font.Name'#6#5'Arial'#10'Font.Pitch'#7#10'fpVariable'
+  +#12'Font.Quality'#7#7'fqDraft'#11'ParentColor'#8#10'ParentFont'#8#0#0#6'TLab'
+  +'el'#7'Label13'#4'Left'#2'g'#6'Height'#2#15#3'Top'#2#8#5'Width'#2#26#7'Capti'
+  +'on'#6#4'Blue'#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7#7'clBlac'
+  +'k'#11'Font.Height'#2#243#9'Font.Name'#6#5'Arial'#10'Font.Pitch'#7#10'fpVari'
+  +'able'#12'Font.Quality'#7#7'fqDraft'#11'ParentColor'#8#10'ParentFont'#8#0#0#6
+  +'TLabel'#7'Label14'#4'Left'#3#152#0#6'Height'#2#15#3'Top'#2#8#5'Width'#2'2'#7
+  +'Caption'#6#9'Intensity'#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7
+  +#7'clBlack'#11'Font.Height'#2#243#9'Font.Name'#6#5'Arial'#10'Font.Pitch'#7#10
+  +'fpVariable'#12'Font.Quality'#7#7'fqDraft'#11'ParentColor'#8#10'ParentFont'#8
+  +#0#0#9'TGroupBox'#9'GroupBox1'#4'Left'#3'h'#1#6'Height'#3#24#1#3'Top'#2#8#5
+  +'Width'#3#192#0#7'Caption'#6#20'Communications setup'#12'ClientHeight'#3#6#1
+  +#11'ClientWidth'#3#190#0#8'TabOrder'#2#0#0#6'TLabel'#6'Label1'#4'Left'#2#9#6
+  +'Height'#2#17#3'Top'#2#7#5'Width'#2'9'#7'Caption'#6#9'Port:'#11'ParentCo'
+  +'lor'#8#0#0#9'TComboBox'#7'lstPort'#4'Left'#2#9#6'Height'#2#31#3'Top'#2#24#5
+  +'Width'#2'N'#10'ItemHeight'#2#0#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#0
+  +#0#0#7'TButton'#6'cmdAdd'#4'Left'#2'g'#6'Height'#2#23#3'Top'#2#24#5'Width'#2
+  +'L'#7'Caption'#6#13'> add to test'#7'OnClick'#7#11'cmdAddClick'#8'TabOrder'#2
+  +#1#0#0#8'TListBox'#14'lstPortsToTest'#4'Left'#2#9#6'Height'#3#135#0#3'Top'#2
+  +'`'#5'Width'#3#170#0#10'ItemHeight'#2#0#11'ScrollWidth'#3#168#0#8'TabOrder'#2
+  +#2#8'TopIndex'#2#255#0#0#6'TLabel'#6'Label3'#4'Left'#2#9#6'Height'#2#17#3'To'
+  +'p'#2'H'#5'Width'#2'e'#7'Caption'#6#19'Ports to be tested:'#11'ParentColor'#8
+  +#0#0#0#9'TGroupBox'#9'GroupBox2'#4'Left'#3'h'#1#6'Height'#3#136#0#3'Top'#3'('
+  +#1#5'Width'#3#194#0#7'Caption'#6#8'Commands'#12'ClientHeight'#2'v'#11'Client'
+  +'Width'#3#192#0#8'TabOrder'#2#1#0#6'TLabel'#16'lblExecutionTime'#4'Left'#2#9
+  +#6'Height'#2#17#3'Top'#2'P'#5'Width'#2'\'#7'Caption'#6#17'Execution time: -'
+  +#11'ParentColor'#8#0#0#7'TButton'#10'cmdCapture'#4'Left'#2#9#6'Height'#2'0'#3
+  +'Top'#2#16#5'Width'#3#170#0#7'Caption'#6#15'CAPTURE && TEST'#7'OnClick'#7#15
+  +'cmdCaptureClick'#8'TabOrder'#2#0#0#0#0#5'TEdit'#7'txtRed0'#4'Left'#2#8#6'He'
+  +'ight'#2#27#3'Top'#2'!'#5'Width'#2'#'#5'Color'#4#255#198#198#0#12'Font.CharS'
+  +'et'#7#12'ANSI_CHARSET'#10'Font.Color'#7#7'clBlack'#11'Font.Height'#2#244#9
+  +'Font.Name'#6#13'MS Sans Serif'#10'Font.Pitch'#7#10'fpVariable'#12'Font.Qual'
+  +'ity'#7#7'fqDraft'#10'ParentFont'#8#8'ReadOnly'#9#8'TabOrder'#2#2#4'Text'#6#1
+  +'0'#0#0#5'TEdit'#9'txtGreen0'#4'Left'#2'8'#6'Height'#2#27#3'Top'#2'!'#5'Widt'
+  +'h'#2'#'#5'Color'#4#202#251#204#0#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Fon'
+  +'t.Color'#7#7'clBlack'#11'Font.Height'#2#244#9'Font.Name'#6#13'MS Sans Serif'
+  +#10'Font.Pitch'#7#10'fpVariable'#12'Font.Quality'#7#7'fqDraft'#10'ParentFont'
+  +#8#8'ReadOnly'#9#8'TabOrder'#2#3#4'Text'#6#1'0'#0#0#5'TEdit'#8'txtBlue0'#4'L'
+  +'eft'#2'h'#6'Height'#2#27#3'Top'#2'!'#5'Width'#2'#'#5'Color'#4#206#233#253#0
+  +#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.Color'#7#7'clBlack'#11'Font.Hei'
+  +'ght'#2#244#9'Font.Name'#6#13'MS Sans Serif'#10'Font.Pitch'#7#10'fpVariable'
+  +#12'Font.Quality'#7#7'fqDraft'#10'ParentFont'#8#8'ReadOnly'#9#8'TabOrder'#2#4
+  +#4'Text'#6#1'0'#0#0#5'TEdit'#7'txtInt0'#4'Left'#3#152#0#6'Height'#2#27#3'Top'
+  +#2'!'#5'Width'#2'3'#5'Color'#7#6'clNone'#12'Font.CharSet'#7#12'ANSI_CHARSET'
+  +#10'Font.Color'#7#7'clBlack'#11'Font.Height'#2#244#9'Font.Name'#6#13'MS Sans'
+  +' Serif'#10'Font.Pitch'#7#10'fpVariable'#12'Font.Quality'#7#7'fqDraft'#10'Pa'
+  +'rentFont'#8#8'ReadOnly'#9#8'TabOrder'#2#5#4'Text'#6#1'0'#0#0#11'TStringGrid'
+  +#11'StringGrid1'#4'Left'#2#8#6'Height'#3#168#1#3'Top'#2#8#5'Width'#3'X'#1#8
+  +'AutoEdit'#8#7'Columns'#14#1#13'Title.Caption'#6#5'Title'#0#1#13'Title.Capti'
+  +'on'#6#5'Title'#0#1#13'Title.Caption'#6#5'Title'#0#1#13'Title.Caption'#6#5'T'
+  +'itle'#0#1#13'Title.Caption'#6#5'Title'#0#0#9'FixedCols'#2#0#8'RowCount'#2#21
+  +#8'TabOrder'#2#6#0#0#9'TGroupBox'#9'GroupBox3'#4'Left'#3'8'#2#6'Height'#3#170
+  +#1#3'Top'#2#8#5'Width'#3#232#0#7'Caption'#6#4'Tips'#12'ClientHeight'#3#152#1
+  ,#11'ClientWidth'#3#230#0#8'TabOrder'#2#7#0#6'TLabel'#6'Label2'#4'Left'#2#8#6
+  +'Height'#3#137#1#3'Top'#2#7#5'Width'#3#216#0#8'AutoSize'#8#7'Caption'#12'L'#2
+  +#0#0'In order to speed up a test system there are some critical steps to be '
+  +'taken:'#13#10#13#10'1.- Increase baudrate'#13#10'2.- If USB is used, then r'
+  +'educe port''s latency. Increasing baudrate does not have any effect if late'
+  +'ncy is not reduced.'#13#10'3.- Download only necessary data. i.e: send only'
+  +' extrictly necessary commands to the Analyser'#13#10'4.- Use GET-ALL comman'
+  +'ds'#13#10'5.- When multiple Analysers are tested simultaneously, Daisy-chai'
+  +'n is the easier option, but Multi-threading is much more efficient.'#13#10
+  +#13#10'Other considerations can be taken and are explained in detail in the '
+  +'Application "Test Speed optimization"'#12'Font.CharSet'#7#12'ANSI_CHARSET'
+  +#10'Font.Color'#7#7'clBlack'#11'Font.Height'#2#243#9'Font.Name'#6#8'Segoe UI'
+  +#10'Font.Pitch'#7#10'fpVariable'#12'Font.Quality'#7#7'fqDraft'#11'ParentColo'
+  +'r'#8#10'ParentFont'#8#8'WordWrap'#9#0#0#0#0
+]);

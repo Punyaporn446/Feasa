@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1582203272 source:/home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/11_sequence/main.cpp
+	<stdlib.h>
+	<dlfcn.h>
+	<stdio.h>
+	<string.h>
+	"feasacom.h"
+
+1582200132 /home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/11_sequence/feasacom.h
+
+1582202806 source:/home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/11_sequence/feasacom.cpp
+	<stdio.h>
+	<stdlib.h>
+	<dlfcn.h>
+	<string.h>
+	"feasacom.h"
+

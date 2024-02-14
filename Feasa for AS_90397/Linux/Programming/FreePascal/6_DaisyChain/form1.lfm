@@ -1,0 +1,205 @@
+object frmMain: TfrmMain
+  Left = 403
+  Height = 350
+  Top = 157
+  Width = 371
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Daisy Chain - (c) Feasa Enterprises Ltd'
+  ClientHeight = 350
+  ClientWidth = 371
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object Label2: TLabel
+    Left = 0
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Communications Setup'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label3: TLabel
+    Left = 183
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Read && Capture'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 32
+    Top = 32
+    Width = 150
+    AutoSize = False
+    Caption = 'Port of the 1st Led Analyser:'
+    ParentColor = False
+    WordWrap = True
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 88
+    Top = 112
+    Width = 161
+    AutoSize = False
+    Caption = 'First, you need to select the communications port where the 1st Led Analyser of the BUS is connected. This will be the port through which you can access to the Bus.'
+    Font.Color = clBlack
+    Font.Height = -11
+    ParentBidiMode = False
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object GroupBox1: TGroupBox
+    Left = 187
+    Height = 121
+    Top = 23
+    Width = 178
+    Caption = 'Daisy Chain'
+    ClientHeight = 105
+    ClientWidth = 176
+    TabOrder = 0
+    object Label8: TLabel
+      Left = 8
+      Height = 48
+      Top = 7
+      Width = 155
+      AutoSize = False
+      Caption = 'Serial Number of the Led Analyser you want to control:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object cmdGet: TButton
+      Left = 6
+      Height = 26
+      Top = 72
+      Width = 76
+      Caption = 'GET BUS'
+      OnClick = cmdGetClick
+      TabOrder = 0
+    end
+    object cmdFree: TButton
+      Left = 91
+      Height = 26
+      Top = 72
+      Width = 73
+      Caption = 'FREE BUS'
+      OnClick = cmdFreeClick
+      TabOrder = 1
+    end
+    object txtSN: TEdit
+      Left = 59
+      Height = 25
+      Top = 41
+      Width = 55
+      CharCase = ecUppercase
+      MaxLength = 4
+      TabOrder = 2
+      Text = 'E001'
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 187
+    Height = 96
+    Top = 151
+    Width = 178
+    Caption = 'Measure'
+    ClientHeight = 80
+    ClientWidth = 176
+    TabOrder = 1
+    object Label9: TLabel
+      Left = 44
+      Height = 15
+      Top = 12
+      Width = 80
+      Caption = 'Fiber to read:'
+      ParentColor = False
+    end
+    object txtFiber: TEdit
+      Left = 132
+      Height = 25
+      Top = 8
+      Width = 32
+      MaxLength = 2
+      TabOrder = 0
+      Text = '1'
+    end
+    object cmdCaptureAndRead: TButton
+      Left = 8
+      Height = 30
+      Top = 40
+      Width = 158
+      Caption = 'CAPTURE AND READ'
+      OnClick = cmdCaptureAndReadClick
+      TabOrder = 1
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 187
+    Height = 92
+    Top = 253
+    Width = 178
+    Caption = 'Response'
+    ClientHeight = 76
+    ClientWidth = 176
+    TabOrder = 2
+    object lblLog: TLabel
+      Left = 8
+      Height = 65
+      Top = 0
+      Width = 158
+      AutoSize = False
+      Color = clWhite
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+    end
+  end
+  object lstPort: TComboBox
+    Left = 64
+    Height = 29
+    Top = 62
+    Width = 111
+    ItemHeight = 0
+    Style = csDropDownList
+    TabOrder = 3
+  end
+end

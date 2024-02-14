@@ -1,0 +1,9 @@
+List of Feasa software and versions contained on the installer:
+
+- User Demo Software v5.0.0
+- Test Software v3.6.0
+- User calibration v2.0.3
+- Terminal program v3.6.0
+- Programming Examples: DLL version 3.0.0
+
+(c) Feasa (tm) Enterprises Ltd

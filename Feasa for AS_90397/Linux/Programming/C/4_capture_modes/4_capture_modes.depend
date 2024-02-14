@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1464615239 source:/home/mc/Documents/programming_examples/C/4_capture_modes/main.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<dlfcn.h>
+	"feasacom.h"
+
+1464613373 /home/mc/Documents/programming_examples/C/4_capture_modes/feasacom.h
+

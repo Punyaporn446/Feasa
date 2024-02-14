@@ -1,0 +1,238 @@
+object frmMain: TfrmMain
+  Left = 309
+  Height = 443
+  Top = 122
+  Width = 440
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Get HSI Simple - (c) Feasa Enterprises Ltd'
+  ClientHeight = 443
+  ClientWidth = 440
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object Label11: TLabel
+    Left = 8
+    Height = 16
+    Top = 8
+    Width = 27
+    Caption = 'Red:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 56
+    Height = 16
+    Top = 8
+    Width = 35
+    Caption = 'Green'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 103
+    Height = 16
+    Top = 8
+    Width = 26
+    Caption = 'Blue'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label14: TLabel
+    Left = 152
+    Height = 16
+    Top = 8
+    Width = 49
+    Caption = 'Intensity'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object GroupBox1: TGroupBox
+    Left = 280
+    Height = 75
+    Top = 8
+    Width = 154
+    Caption = 'Communications'
+    ClientHeight = 55
+    ClientWidth = 150
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 17
+      Height = 15
+      Top = 15
+      Width = 56
+      Caption = 'COM Port:'
+      ParentColor = False
+    end
+    object lstPort: TComboBox
+      Left = 76
+      Height = 23
+      Top = 11
+      Width = 54
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 280
+    Height = 184
+    Top = 88
+    Width = 154
+    Caption = 'Commands'
+    ClientHeight = 164
+    ClientWidth = 150
+    TabOrder = 1
+    object Label9: TLabel
+      Left = 16
+      Height = 15
+      Top = 96
+      Width = 74
+      Caption = 'Fibers to read:'
+      ParentColor = False
+    end
+    object cmdCapture: TButton
+      Left = 9
+      Height = 34
+      Top = 16
+      Width = 129
+      Caption = 'CAPTURE'
+      OnClick = cmdCaptureClick
+      TabOrder = 0
+    end
+    object cmdRead: TButton
+      Left = 9
+      Height = 34
+      Top = 120
+      Width = 129
+      Caption = 'READ DATA'
+      OnClick = cmdReadClick
+      TabOrder = 1
+    end
+    object lstFibers: TComboBox
+      Left = 89
+      Height = 23
+      Top = 94
+      Width = 46
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 2
+    end
+  end
+  object txtRed0: TEdit
+    Left = 8
+    Height = 21
+    Top = 33
+    Width = 35
+    Color = 13027071
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 2
+    Text = '0'
+  end
+  object txtGreen0: TEdit
+    Left = 56
+    Height = 21
+    Top = 33
+    Width = 35
+    Color = 13433802
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 3
+    Text = '0'
+  end
+  object txtBlue0: TEdit
+    Left = 104
+    Height = 21
+    Top = 33
+    Width = 35
+    Color = 16640462
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 4
+    Text = '0'
+  end
+  object txtInt0: TEdit
+    Left = 152
+    Height = 21
+    Top = 33
+    Width = 51
+    Color = clNone
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -12
+    Font.Name = 'MS Sans Serif'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 5
+    Text = '0'
+  end
+  object StringGrid1: TStringGrid
+    Left = 8
+    Height = 424
+    Top = 8
+    Width = 264
+    AutoEdit = False
+    ColCount = 4
+    Columns = <    
+      item
+        Title.Caption = 'Title'
+      end    
+      item
+        Title.Caption = 'Title'
+      end    
+      item
+        Title.Caption = 'Title'
+      end    
+      item
+        Title.Caption = 'Title'
+      end>
+    FixedCols = 0
+    RowCount = 21
+    TabOrder = 6
+  end
+end

@@ -1,0 +1,274 @@
+object frmMain: TfrmMain
+  Left = 253
+  Height = 336
+  Top = 108
+  Width = 368
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Tools lib - (c) Feasa Enterprises Ltd'
+  ClientHeight = 336
+  ClientWidth = 368
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '1.4.4.0'
+  object Label2: TLabel
+    Left = 0
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Communications Setup'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Label3: TLabel
+    Left = 183
+    Height = 22
+    Top = 0
+    Width = 184
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Read && Capture'
+    Color = clGray
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 303
+    Top = 24
+    Width = 182
+    ClientHeight = 303
+    ClientWidth = 182
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 24
+      Height = 15
+      Top = 42
+      Width = 56
+      Caption = 'COM Port:'
+      ParentColor = False
+    end
+    object lstPort: TComboBox
+      Left = 83
+      Height = 23
+      Top = 40
+      Width = 54
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object Label5: TLabel
+      Left = 8
+      Height = 72
+      Top = 102
+      Width = 161
+      AutoSize = False
+      Caption = 'CAUTION: the DLL file should be located in the same project folder of the EXE file, or in the system32 folder.'
+      ParentBidiMode = False
+      ParentColor = False
+      WordWrap = True
+    end
+  end
+  object Panel2: TPanel
+    Left = 183
+    Height = 303
+    Top = 24
+    Width = 182
+    ClientHeight = 303
+    ClientWidth = 182
+    TabOrder = 1
+    object Label8: TLabel
+      Left = 9
+      Height = 64
+      Top = 8
+      Width = 161
+      AutoSize = False
+      Caption = 'Press the button shown below to execute a capture and read the result.'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentBidiMode = False
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+    object Label7: TLabel
+      Left = 57
+      Height = 16
+      Top = 155
+      Width = 27
+      Caption = 'Red:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 9
+      Height = 15
+      Top = 76
+      Width = 29
+      Caption = 'Fiber:'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      Left = 57
+      Height = 16
+      Top = 179
+      Width = 39
+      Caption = 'Green:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 57
+      Height = 16
+      Top = 203
+      Width = 30
+      Caption = 'Blue:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 57
+      Height = 16
+      Top = 227
+      Width = 27
+      Caption = 'Hue:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label13: TLabel
+      Left = 57
+      Height = 16
+      Top = 251
+      Width = 24
+      Caption = 'Sat:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label14: TLabel
+      Left = 57
+      Height = 16
+      Top = 273
+      Width = 43
+      Caption = 'Intens.:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object cmdCaptureAndRead: TButton
+      Left = 13
+      Height = 50
+      Top = 96
+      Width = 158
+      Caption = 'CAPTURE AND READ'
+      OnClick = cmdCaptureAndReadClick
+      TabOrder = 0
+    end
+    object txtRed: TEdit
+      Left = 101
+      Height = 23
+      Top = 155
+      Width = 69
+      TabOrder = 1
+    end
+    object txtFiber: TEdit
+      Left = 42
+      Height = 23
+      Top = 72
+      Width = 32
+      MaxLength = 2
+      TabOrder = 2
+      Text = '1'
+    end
+    object txtGreen: TEdit
+      Left = 101
+      Height = 23
+      Top = 179
+      Width = 69
+      TabOrder = 3
+    end
+    object txtBlue: TEdit
+      Left = 101
+      Height = 23
+      Top = 203
+      Width = 69
+      TabOrder = 4
+    end
+    object txtHue: TEdit
+      Left = 101
+      Height = 23
+      Top = 227
+      Width = 69
+      TabOrder = 5
+    end
+    object txtSat: TEdit
+      Left = 101
+      Height = 23
+      Top = 251
+      Width = 69
+      TabOrder = 6
+    end
+    object txtInt: TEdit
+      Left = 101
+      Height = 23
+      Top = 275
+      Width = 69
+      TabOrder = 7
+    end
+  end
+end

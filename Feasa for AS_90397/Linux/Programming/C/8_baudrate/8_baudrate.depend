@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1559904822 source:/home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/8_baudrate/main.cpp
+	<stdlib.h>
+	<dlfcn.h>
+	<stdio.h>
+	<string.h>
+	"feasacom.h"
+
+1559905174 /home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/8_baudrate/feasacom.h
+

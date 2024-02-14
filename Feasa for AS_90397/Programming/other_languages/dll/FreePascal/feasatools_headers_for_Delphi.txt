@@ -1,0 +1,32 @@
+//Note: feasa_tools64.dll file has to be used for 64bit targets
+
+function Feasa_Parse_Int16(StringToParse: AnsiString; Parameter: Byte):SmallInt stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_Int32(StringToParse: AnsiString; Parameter: Byte):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_IntFloat(StringToParse: AnsiString; Parameter: Byte):Single stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_RGBI(AnalyserResponse: PAnsiChar; Red: PByte; Green: PByte; Blue: PByte; Intensity:PInteger):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_RGBI_All(AnalyserResponse: PAnsiChar; RedValues: PByte; GreenValues: PByte; BlueValues: PByte; IntensityValues:PInteger):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_HSI(AnalyserResponse: PAnsiChar; Hue: PSingle; Saturation: PInteger; Intensity:PInteger):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_HSI_All(AnalyserResponse: PAnsiChar; HueValues: PSingle; SaturationValues: PInteger; IntensityValues:PInteger):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_xy(AnalyserResponse: PAnsiChar; x: PSingle; y: PSingle):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_xy_All(AnalyserResponse: PAnsiChar; xValues: PSingle; yValues: PSingle):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_uv(AnalyserResponse: PAnsiChar; u: PSingle; v: PSingle):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_uv_All(AnalyserResponse: PAnsiChar; uValues: PSingle; vValues: PSingle):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_CCT(AnalyserResponse: PAnsiChar; CCT: PInteger; delta: PSingle):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_CCT_All(AnalyserResponse: PAnsiChar; CCTValues: PInteger; deltaValues: PSingle):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_Wavelength(AnalyserResponse: PAnsiChar; Wavelength:PSingle):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_Wavelength_All(AnalyserResponse: PAnsiChar; WavelengthValues:PSingle):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_WI(AnalyserResponse: PAnsiChar; Wavelength:PSingle; Intensity:PInteger):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_WI_All(AnalyserResponse: PAnsiChar; WavelengthValues:PSingle; IntensityValues:PInteger):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_Intensity(AnalyserResponse: PAnsiChar; Intensity:PInteger):Integer stdcall; external 'feasa_tools.dll';
+function Feasa_Parse_Intensity_All(AnalyserResponse: PAnsiChar; IntensityValues:PInteger):Integer stdcall; external 'feasa_tools.dll';
+
+function Feasa_Parse_Spectrum(AnalyserResponse: PAnsiChar; WavelengthValues:PSingle; IntensityValues:PDouble):Integer stdcall; external 'feasa_tools.dll';
+

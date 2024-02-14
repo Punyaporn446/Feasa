@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1464606554 source:/home/mc/Documents/programming_examples/C/0_get_serial/main.c
+	<stdlib.h>
+	<stdio.h>
+	<dlfcn.h>
+	"feasacom.h"
+
+1464606638 /home/mc/Documents/programming_examples/C/0_get_serial/feasacom.h
+
+1559817627 source:/home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/0_getserial/main.c
+	<stdlib.h>
+	<stdio.h>
+	<dlfcn.h>
+	"feasacom.h"
+
+1559817627 /home/carles/Documents/programming_examples/LED_Analyser/functional_multi/C/0_getserial/feasacom.h
+

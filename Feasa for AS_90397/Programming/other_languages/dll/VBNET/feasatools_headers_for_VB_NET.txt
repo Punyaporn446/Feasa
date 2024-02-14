@@ -1,0 +1,123 @@
+	' Note: feasa_tools64.dll file has to be used for 64bit targets
+	Private Const DLLTOOLS_PATH As String = "feasa_tools.dll"
+	
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_Int16( _
+		ByVal StringToParse As String, ByVal Parameter As Byte _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_Int32( _
+		ByVal StringToParse As String, ByVal Parameter As Byte _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_Float( _
+		ByVal StringToParse As String, ByVal Parameter As Byte _
+		) As Single
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_RGBI( _
+		ByVal AnalyserResponse As String, ByRef Red As Byte, ByRef Green As Byte, ByRef Blue As Byte, ByRef Intensity As Integer _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_RGBI_All( _
+		ByVal AnalyserResponse As String, ByVal RedValues() As Byte, ByVal GreenValues() As Byte, ByVal BlueValues() As Byte, ByVal IntensityValues() As Integer _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_HSI( _
+		ByVal AnalyserResponse As String, ByRef Hue As Single, ByRef Saturation As Integer, ByRef Intensity As Integer _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_HSI_All(
+        ByVal AnalyserResponse As String, ByVal HueValues() As Single, ByVal SaturationValues() As Integer, ByVal IntensityValues() As Integer
+        ) As Long
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_xy( _
+		ByVal AnalyserResponse As String, ByRef x As Single, ByRef y As Single _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_xy_All(
+        ByVal AnalyserResponse As String, ByVal xValues() As Single, ByVal yValues() As Single
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_uv( _
+		ByVal AnalyserResponse As String, ByRef u As Single, ByRef v As Single _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_uv_All(
+        ByVal AnalyserResponse As String, ByVal uValues() As Single, ByVal vValues() As Single
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_CCT( _
+		ByVal AnalyserResponse As String, ByRef CCT As Integer, ByRef delta As Single _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_CCT_All(
+        ByVal AnalyserResponse As String, ByVal CCTValues() As Integer, ByVal deltaValues() As Single
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)> _
+    Public Function Feasa_Parse_Wavelength( _
+		ByVal AnalyserResponse As String, ByRef Wavelength As Single _
+		) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_Wavelength_All(
+        ByVal AnalyserResponse As String, ByVal WavelengthValues() As Single
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_WI(
+        ByVal AnalyserResponse As String, ByRef Wavelength As Single, ByRef Intensity As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_WI_All(
+        ByVal AnalyserResponse As String, ByVal WavelengthValues() As Single, ByVal IntensityValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_Intensity(
+        ByVal AnalyserResponse As String, ByRef Intensity As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_Intensity_All(
+        ByVal AnalyserResponse As String, ByVal IntensityValues() As Integer
+        ) As Integer
+    End Function
+
+    <DllImport(DLLTOOLS_PATH)>
+    Public Function Feasa_Parse_Spectrum(
+        ByVal AnalyserResponse As String, ByVal WavelengthValues() As Single, ByVal IntensityValues() As Double
+        ) As Integer
+    End Function
+	

@@ -1,0 +1,90 @@
+{ This is an automatically generated lazarus resource file }
+
+LazarusResources.Add('TfrmMain','FORMDATA',[
+  'TPF0'#8'TfrmMain'#7'frmMain'#4'Left'#3#0#1#6'Height'#3's'#2#3'Top'#2't'#5'Wi'
+  +'dth'#3#237#2#11'BorderIcons'#11#12'biSystemMenu'#10'biMinimize'#0#11'Border'
+  +'Style'#7#8'bsSingle'#7'Caption'#6'&FastTestMT - (c) Feasa Enterprises Ltd'
+  +#12'ClientHeight'#3's'#2#11'ClientWidth'#3#237#2#8'OnCreate'#7#10'FormCreate'
+  +#8'Position'#7#14'poScreenCenter'#10'LCLVersion'#6#7'1.8.2.0'#0#9'TGroupBox'
+  +#9'GroupBox1'#4'Left'#2#8#6'Height'#3#8#1#3'Top'#2#8#5'Width'#3#0#1#7'Captio'
+  +'n'#6#20'Communications setup'#12'ClientHeight'#3#247#0#11'ClientWidth'#3#254
+  +#0#8'TabOrder'#2#0#0#6'TLabel'#6'Label1'#4'Left'#2#9#6'Height'#2#16#3'Top'#2
+  +#7#5'Width'#2'>'#7'Caption'#6#9'COM Port:'#11'ParentColor'#8#0#0#9'TComboBox'
+  +#7'lstPort'#4'Left'#2'P'#6'Height'#2#30#3'Top'#2#3#5'Width'#3#150#0#10'ItemH'
+  +'eight'#2#0#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#0#0#0#6'TLabel'#6'La'
+  +'bel2'#4'Left'#2#8#6'Height'#3#193#0#3'Top'#2''''#5'Width'#3#240#0#8'AutoSiz'
+  +'e'#8#7'Caption'#12'm'#1#0#0'This example explores the Sequence functionalit'
+  +'y of the LED Analyser, by allowing the user to perform a Sequence test, and'
+  +' also to find some possible test parameters through the functions provided '
+  +'in the DLL.'#13#10#13#10'For simplicity, this example is limited to test on'
+  +'e channel at a time, but the LED Analuser and DLL can measure all channels '
+  +'simultaneously, if required.'#12'Font.CharSet'#7#12'ANSI_CHARSET'#10'Font.C'
+  +'olor'#7#7'clBlack'#11'Font.Height'#2#243#9'Font.Name'#6#8'Segoe UI'#10'Font'
+  +'.Pitch'#7#10'fpVariable'#12'Font.Quality'#7#7'fqDraft'#11'ParentColor'#8#10
+  +'ParentFont'#8#8'WordWrap'#9#0#0#0#9'TGroupBox'#9'GroupBox2'#4'Left'#3#16#1#6
+  +'Height'#3#8#1#3'Top'#2#8#5'Width'#3#8#1#7'Caption'#6#15'Find parameters'#12
+  +'ClientHeight'#3#247#0#11'ClientWidth'#3#6#1#8'TabOrder'#2#1#0#7'TButton'#17
+  +'cmdFindParameters'#4'Left'#2#8#6'Height'#2'0'#3'Top'#3#184#0#5'Width'#3#242
+  +#0#7'Caption'#6#15'FIND PARAMETERS'#7'OnClick'#7#22'cmdFindParametersClick'#8
+  +'TabOrder'#2#0#0#0#6'TLabel'#6'Label3'#4'Left'#2#11#6'Height'#2#16#3'Top'#2#7
+  +#5'Width'#2']'#7'Caption'#6#15'Blinking Speed:'#11'ParentColor'#8#0#0#9'TCom'
+  +'boBox'#16'lstBlinkingSpeed'#4'Left'#2'c'#6'Height'#2#30#3'Top'#2#3#5'Width'
+  +#3#150#0#10'ItemHeight'#2#0#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#1#0#0
+  +#6'TLabel'#6'Label4'#4'Left'#2#11#6'Height'#2#16#3'Top'#2'"'#5'Width'#2'P'#7
+  +'Caption'#6#13'Signal Speed:'#11'ParentColor'#8#0#0#9'TComboBox'#14'lstSigna'
+  +'lSpeed'#4'Left'#2'c'#6'Height'#2#30#3'Top'#2#31#5'Width'#3#150#0#10'ItemHei'
+  +'ght'#2#0#5'Style'#7#14'csDropDownList'#8'TabOrder'#2#2#0#0#9'TSpinEdit'#9'n'
+  +'umCycles'#4'Left'#3#168#0#6'Height'#2#28#3'Top'#2'?'#5'Width'#2'Q'#8'MaxVal'
+  +'ue'#2#20#8'MinValue'#2#1#8'TabOrder'#2#3#5'Value'#2#4#0#0#9'TSpinEdit'#11'n'
+  +'umLEDCount'#4'Left'#3#168#0#6'Height'#2#28#3'Top'#2'['#5'Width'#2'Q'#8'MaxV'
+  +'alue'#2#20#8'MinValue'#2#1#8'TabOrder'#2#4#5'Value'#2#1#0#0#9'TSpinEdit'#14
+  +'numFiberToTest'#4'Left'#3#168#0#6'Height'#2#28#3'Top'#2'x'#5'Width'#2'Q'#8
+  +'MaxValue'#2#20#8'MinValue'#2#1#8'TabOrder'#2#5#5'Value'#2#1#0#0#6'TLabel'#6
+  +'Label5'#4'Left'#2'('#6'Height'#2#16#3'Top'#2'B'#5'Width'#3#130#0#7'Caption'
+  +#6#22'Min cycles to capture:'#11'ParentColor'#8#0#0#6'TLabel'#6'Label6'#4'Le'
+  +'ft'#2'D'#6'Height'#2#16#3'Top'#2'_'#5'Width'#2'f'#7'Caption'#6#16'Total LED'
+  +' Count:'#11'ParentColor'#8#0#0#6'TLabel'#6'Label7'#4'Left'#2'['#6'Height'#2
+  +#16#3'Top'#2'|'#5'Width'#2'K'#7'Caption'#6#14'Fiber to test:'#11'ParentColor'
+  +#8#0#0#9'TCheckBox'#19'chkTimeResImportant'#4'Left'#2#11#6'Height'#2#23#3'To'
+  +'p'#3#152#0#5'Width'#3#195#0#7'Caption'#6#28'Time resolution is important'#7
+  +'Checked'#9#5'State'#7#9'cbChecked'#8'TabOrder'#2#6#0#0#0#9'TGroupBox'#9'Gro'
+  +'upBox3'#4'Left'#3' '#2#6'Height'#3#8#1#3'Top'#2#8#5'Width'#3#192#0#7'Captio'
+  +'n'#6#13'Sequence Test'#12'ClientHeight'#3#247#0#11'ClientWidth'#3#190#0#8'T'
+  +'abOrder'#2#2#0#7'TButton'#15'cmdSequenceTest'#4'Left'#2#8#6'Height'#2'0'#3
+  +'Top'#3#184#0#5'Width'#3#170#0#7'Caption'#6#13'SEQUENCE TEST'#7'OnClick'#7#20
+  +'cmdSequenceTestClick'#8'TabOrder'#2#0#0#0#9'TSpinEdit'#14'numCaptureTime'#4
+  +'Left'#2'a'#6'Height'#2#28#3'Top'#2';'#5'Width'#2'Q'#8'MaxValue'#2#20#8'MinV'
+  +'alue'#2#1#8'TabOrder'#2#1#5'Value'#2#4#0#0#9'TSpinEdit'#11'numWaitTime'#4'L'
+  +'eft'#2'a'#6'Height'#2#28#3'Top'#2'W'#5'Width'#2'Q'#8'MaxValue'#2#20#8'MinVa'
+  +'lue'#2#1#8'TabOrder'#2#2#5'Value'#2#1#0#0#9'TSpinEdit'#14'numSampleCount'#4
+  +'Left'#2'a'#6'Height'#2#28#3'Top'#2't'#5'Width'#2'Q'#8'MaxValue'#3#172#13#8
+  +'MinValue'#2#1#8'TabOrder'#2#3#5'Value'#3#200#0#0#0#6'TLabel'#7'Label10'#4'L'
+  +'eft'#2#15#6'Height'#2#16#3'Top'#2'>'#5'Width'#2'P'#7'Caption'#6#13'Capture '
+  +'time:'#11'ParentColor'#8#0#0#6'TLabel'#7'Label11'#4'Left'#2'!'#6'Height'#2
+  +#16#3'Top'#2'\'#5'Width'#2';'#7'Caption'#6#10'Wait time:'#11'ParentColor'#8#0
+  +#0#6'TLabel'#7'Label12'#4'Left'#2#11#6'Height'#2#16#3'Top'#2'x'#5'Width'#2'U'
+  +#7'Caption'#6#13'Sample count:'#11'ParentColor'#8#0#0#6'TLabel'#7'Label13'#4
+  +'Left'#2#22#6'Height'#2#16#3'Top'#2#7#5'Width'#2'K'#7'Caption'#6#14'Fiber to'
+  ,' test:'#11'ParentColor'#8#0#0#9'TSpinEdit'#8'numFiber'#4'Left'#2'a'#6'Heigh'
+  +'t'#2#28#3'Top'#2#4#5'Width'#2'Q'#8'MaxValue'#2#20#8'MinValue'#2#1#8'TabOrde'
+  +'r'#2#4#5'Value'#2#1#0#0#9'TSpinEdit'#13'numStartDelay'#4'Left'#2'a'#6'Heigh'
+  +'t'#2#28#3'Top'#2' '#5'Width'#2'Q'#8'MaxValue'#2#20#8'TabOrder'#2#5#0#0#6'TL'
+  +'abel'#7'Label14'#4'Left'#2#29#6'Height'#2#16#3'Top'#2'#'#5'Width'#2'D'#7'Ca'
+  +'ption'#6#12'Start delay:'#11'ParentColor'#8#0#0#0#6'TChart'#14'ChartIntensi'
+  +'ty'#4'Left'#2#11#6'Height'#3#164#0#3'Top'#3#24#1#5'Width'#3#213#2#8'AxisLis'
+  +'t'#14#1#22'Marks.LabelBrush.Style'#7#7'bsClear'#6'Minors'#14#0#27'Title.Lab'
+  +'elFont.Orientation'#3#132#3#22'Title.LabelBrush.Style'#7#7'bsClear'#0#1#9'A'
+  +'lignment'#7#9'calBottom'#22'Marks.LabelBrush.Style'#7#7'bsClear'#6'Minors'
+  +#14#0#22'Title.LabelBrush.Style'#7#7'bsClear'#0#0#16'Foot.Brush.Color'#7#9'c'
+  +'lBtnFace'#15'Foot.Font.Color'#7#6'clBlue'#17'Title.Brush.Color'#7#9'clBtnFa'
+  +'ce'#16'Title.Font.Color'#7#6'clBlue'#18'Title.Text.Strings'#1#6#7'TAChart'#0
+  +#0#11'TLineSeries'#19'ChartIntensity_Data'#0#0#0#6'TChart'#8'ChartCIE'#4'Lef'
+  +'t'#2#16#6'Height'#3#164#0#3'Top'#3#192#1#5'Width'#3#213#2#8'AxisList'#14#1
+  +#22'Marks.LabelBrush.Style'#7#7'bsClear'#6'Minors'#14#0#27'Title.LabelFont.O'
+  +'rientation'#3#132#3#22'Title.LabelBrush.Style'#7#7'bsClear'#0#1#9'Alignment'
+  +#7#9'calBottom'#22'Marks.LabelBrush.Style'#7#7'bsClear'#6'Minors'#14#0#22'Ti'
+  +'tle.LabelBrush.Style'#7#7'bsClear'#0#0#16'Foot.Brush.Color'#7#9'clBtnFace'
+  +#15'Foot.Font.Color'#7#6'clBlue'#17'Title.Brush.Color'#7#9'clBtnFace'#16'Tit'
+  +'le.Font.Color'#7#6'clBlue'#18'Title.Text.Strings'#1#6#7'TAChart'#0#0#11'TLi'
+  +'neSeries'#14'ChartCIE_Datax'#0#0#11'TLineSeries'#14'ChartCIE_Datay'#0#0#0#0
+]);

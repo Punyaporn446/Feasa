@@ -1,0 +1,249 @@
+object frmMain: TfrmMain
+  Left = 256
+  Height = 627
+  Top = 116
+  Width = 770
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'FastTestMT - (c) Feasa Enterprises Ltd'
+  ClientHeight = 627
+  ClientWidth = 770
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.8.2.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 264
+    Top = 8
+    Width = 216
+    Caption = 'Communications setup'
+    ClientHeight = 247
+    ClientWidth = 214
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 9
+      Height = 16
+      Top = 7
+      Width = 62
+      Caption = 'COM Port:'
+      ParentColor = False
+    end
+    object lstPort: TComboBox
+      Left = 80
+      Height = 30
+      Top = 3
+      Width = 128
+      ItemHeight = 0
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 193
+      Top = 39
+      Width = 200
+      AutoSize = False
+      Caption = 'This example explores the Sequence functionality applied to the more and more common automotive sweeping indicators'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 232
+    Height = 264
+    Top = 8
+    Width = 240
+    Caption = 'Sequence Test'
+    ClientHeight = 247
+    ClientWidth = 238
+    TabOrder = 1
+    object cmdSequenceTest: TButton
+      Left = 8
+      Height = 48
+      Top = 184
+      Width = 222
+      Caption = 'SEQUENCE TEST'
+      OnClick = cmdSequenceTestClick
+      TabOrder = 0
+    end
+    object numCaptureTime: TSpinEdit
+      Left = 97
+      Height = 28
+      Top = 59
+      Width = 65
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 1
+      Value = 10
+    end
+    object numWaitTime: TSpinEdit
+      Left = 97
+      Height = 28
+      Top = 87
+      Width = 65
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 2
+      Value = 1
+    end
+    object numSampleCount: TSpinEdit
+      Left = 97
+      Height = 28
+      Top = 116
+      Width = 67
+      Increment = 25
+      MaxValue = 3500
+      MinValue = 1
+      TabOrder = 3
+      Value = 150
+    end
+    object Label10: TLabel
+      Left = 15
+      Height = 16
+      Top = 62
+      Width = 80
+      Caption = 'Capture time:'
+      ParentColor = False
+    end
+    object Label11: TLabel
+      Left = 33
+      Height = 16
+      Top = 92
+      Width = 59
+      Caption = 'Wait time:'
+      ParentColor = False
+    end
+    object Label12: TLabel
+      Left = 11
+      Height = 16
+      Top = 120
+      Width = 85
+      Caption = 'Sample count:'
+      ParentColor = False
+    end
+    object Label13: TLabel
+      Left = 17
+      Height = 16
+      Top = 7
+      Width = 81
+      Caption = 'Fibers to test:'
+      ParentColor = False
+    end
+    object numFibers: TSpinEdit
+      Left = 97
+      Height = 28
+      Top = 4
+      Width = 65
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 4
+      Value = 12
+    end
+    object numStartDelay: TSpinEdit
+      Left = 97
+      Height = 28
+      Top = 32
+      Width = 65
+      MaxValue = 20
+      TabOrder = 5
+    end
+    object Label14: TLabel
+      Left = 29
+      Height = 16
+      Top = 35
+      Width = 68
+      Caption = 'Start delay:'
+      ParentColor = False
+    end
+    object chkisOffToOnPattern: TCheckBox
+      Left = 11
+      Height = 23
+      Top = 152
+      Width = 146
+      Caption = 'Is Off-to-On pattern'
+      Checked = True
+      State = cbChecked
+      TabOrder = 6
+    end
+    object Label3: TLabel
+      Left = 168
+      Height = 16
+      Top = 7
+      Width = 69
+      Caption = '(test 1 to n)'
+      ParentColor = False
+    end
+  end
+  object ChartIntensity: TChart
+    Left = 11
+    Height = 340
+    Top = 280
+    Width = 749
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    object ChartIntensityLineSeries1: TLineSeries
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 480
+    Height = 264
+    Top = 8
+    Width = 280
+    Caption = 'Timing'
+    ClientHeight = 247
+    ClientWidth = 278
+    TabOrder = 3
+    object gridTimes: TStringGrid
+      Left = 8
+      Height = 231
+      Top = 3
+      Width = 264
+      ColCount = 4
+      Columns = <      
+        item
+          Title.Caption = 'Fib'
+          Width = 35
+        end      
+        item
+          Title.Caption = 'Low (ms)'
+          Width = 60
+        end      
+        item
+          Title.Caption = 'High (ms)'
+          Width = 60
+        end      
+        item
+          Title.Caption = 'Intensity'
+          Width = 80
+        end>
+      FixedCols = 0
+      RowCount = 1
+      TabOrder = 0
+    end
+  end
+end

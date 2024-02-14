@@ -1,0 +1,340 @@
+object frmMain: TfrmMain
+  Left = 256
+  Height = 627
+  Top = 116
+  Width = 749
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'FastTestMT - (c) Feasa Enterprises Ltd'
+  ClientHeight = 627
+  ClientWidth = 749
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.0.2.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 264
+    Top = 8
+    Width = 256
+    Caption = 'Communications setup'
+    ClientHeight = 244
+    ClientWidth = 252
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 9
+      Height = 15
+      Top = 7
+      Width = 56
+      Caption = 'COM Port:'
+      ParentColor = False
+    end
+    object lstPort: TComboBox
+      Left = 80
+      Height = 23
+      Top = 3
+      Width = 150
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 193
+      Top = 39
+      Width = 240
+      AutoSize = False
+      Caption = 'This example explores the Sequence functionality of the LED Analyser, by allowing the user to perform a Sequence test, and also to find some possible test parameters through the functions provided in the DLL.'#13#10#13#10'For simplicity, this example is limited to test one channel at a time, but the LED Analuser and DLL can measure all channels simultaneously, if required.'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+      WordWrap = True
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 272
+    Height = 264
+    Top = 8
+    Width = 264
+    Caption = 'Find parameters'
+    ClientHeight = 244
+    ClientWidth = 260
+    TabOrder = 1
+    object cmdFindParameters: TButton
+      Left = 8
+      Height = 48
+      Top = 184
+      Width = 242
+      Caption = 'FIND PARAMETERS'
+      OnClick = cmdFindParametersClick
+      TabOrder = 0
+    end
+    object Label3: TLabel
+      Left = 11
+      Height = 15
+      Top = 7
+      Width = 81
+      Caption = 'Blinking Speed:'
+      ParentColor = False
+    end
+    object lstBlinkingSpeed: TComboBox
+      Left = 99
+      Height = 23
+      Top = 3
+      Width = 150
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object Label4: TLabel
+      Left = 11
+      Height = 15
+      Top = 34
+      Width = 70
+      Caption = 'Signal Speed:'
+      ParentColor = False
+    end
+    object lstSignalSpeed: TComboBox
+      Left = 99
+      Height = 23
+      Top = 31
+      Width = 150
+      ItemHeight = 15
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object numCycles: TSpinEdit
+      Left = 168
+      Height = 23
+      Top = 63
+      Width = 81
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 3
+      Value = 4
+    end
+    object numLEDCount: TSpinEdit
+      Left = 168
+      Height = 23
+      Top = 91
+      Width = 81
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 4
+      Value = 1
+    end
+    object numFiberToTest: TSpinEdit
+      Left = 168
+      Height = 23
+      Top = 120
+      Width = 81
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 5
+      Value = 1
+    end
+    object Label5: TLabel
+      Left = 40
+      Height = 15
+      Top = 66
+      Width = 116
+      Caption = 'Min cycles to capture:'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 68
+      Height = 15
+      Top = 95
+      Width = 88
+      Caption = 'Total LED Count:'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      Left = 91
+      Height = 15
+      Top = 124
+      Width = 65
+      Caption = 'Fiber to test:'
+      ParentColor = False
+    end
+    object chkTimeResImportant: TCheckBox
+      Left = 11
+      Height = 19
+      Top = 152
+      Width = 170
+      Caption = 'Time resolution is important'
+      Checked = True
+      State = cbChecked
+      TabOrder = 6
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 544
+    Height = 264
+    Top = 8
+    Width = 192
+    Caption = 'Sequence Test'
+    ClientHeight = 244
+    ClientWidth = 188
+    TabOrder = 2
+    object cmdSequenceTest: TButton
+      Left = 8
+      Height = 48
+      Top = 184
+      Width = 170
+      Caption = 'SEQUENCE TEST'
+      OnClick = cmdSequenceTestClick
+      TabOrder = 0
+    end
+    object numCaptureTime: TSpinEdit
+      Left = 97
+      Height = 23
+      Top = 59
+      Width = 81
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 1
+      Value = 4
+    end
+    object numWaitTime: TSpinEdit
+      Left = 97
+      Height = 23
+      Top = 87
+      Width = 81
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 2
+      Value = 1
+    end
+    object numSampleCount: TSpinEdit
+      Left = 97
+      Height = 23
+      Top = 116
+      Width = 81
+      MaxValue = 3500
+      MinValue = 1
+      TabOrder = 3
+      Value = 200
+    end
+    object Label10: TLabel
+      Left = 15
+      Height = 15
+      Top = 62
+      Width = 72
+      Caption = 'Capture time:'
+      ParentColor = False
+    end
+    object Label11: TLabel
+      Left = 33
+      Height = 15
+      Top = 92
+      Width = 54
+      Caption = 'Wait time:'
+      ParentColor = False
+    end
+    object Label12: TLabel
+      Left = 11
+      Height = 15
+      Top = 120
+      Width = 76
+      Caption = 'Sample count:'
+      ParentColor = False
+    end
+    object Label13: TLabel
+      Left = 22
+      Height = 15
+      Top = 7
+      Width = 65
+      Caption = 'Fiber to test:'
+      ParentColor = False
+    end
+    object numFiber: TSpinEdit
+      Left = 97
+      Height = 23
+      Top = 4
+      Width = 81
+      MaxValue = 20
+      MinValue = 1
+      TabOrder = 4
+      Value = 1
+    end
+    object numStartDelay: TSpinEdit
+      Left = 97
+      Height = 23
+      Top = 32
+      Width = 81
+      MaxValue = 20
+      TabOrder = 5
+    end
+    object Label14: TLabel
+      Left = 29
+      Height = 15
+      Top = 35
+      Width = 58
+      Caption = 'Start delay:'
+      ParentColor = False
+    end
+  end
+  object ChartIntensity: TChart
+    Left = 11
+    Height = 164
+    Top = 280
+    Width = 725
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    object ChartIntensity_Data: TLineSeries
+    end
+  end
+  object ChartCIE: TChart
+    Left = 16
+    Height = 164
+    Top = 448
+    Width = 725
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    object ChartCIE_Datax: TLineSeries
+    end
+    object ChartCIE_Datay: TLineSeries
+    end
+  end
+end

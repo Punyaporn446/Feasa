@@ -1,0 +1,388 @@
+#Note: feasacom.dll file has to be used for 32bit targets
+
+self.FeasaDLL = ctypes.WinDLL('feasacom64.dll')
+
+self.FeasaCom_GetDLLVersion = self.FeasaDLL['FeasaCom_GetDLLVersion']
+self.FeasaCom_GetDLLVersion.argtypes = [ctypes.c_char_p]
+
+# Basic Comm functions
+self.FeasaCom_Open = self.FeasaDLL['FeasaCom_Open']
+self.FeasaCom_Open.argtypes = [ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_Open.restype = ctypes.c_int
+
+self.FeasaCom_Send = self.FeasaDLL['FeasaCom_Send']
+self.FeasaCom_Send.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_Send.restype = ctypes.c_int
+
+self.FeasaCom_Close = self.FeasaDLL['FeasaCom_Close']
+self.FeasaCom_Close.argtypes = [ctypes.c_int]
+self.FeasaCom_Close.restype = ctypes.c_int
+
+self.FeasaCom_OpenSN = self.FeasaDLL['FeasaCom_OpenSN']
+self.FeasaCom_OpenSN.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_OpenSN.restype = ctypes.c_int
+
+self.FeasaCom_SendSN = self.FeasaDLL['FeasaCom_SendSN']
+self.FeasaCom_SendSN.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_SendSN.restype = ctypes.c_int
+
+self.FeasaCom_CloseSN = self.FeasaDLL['FeasaCom_CloseSN']
+self.FeasaCom_CloseSN.argtypes = [ctypes.c_char_p]
+self.FeasaCom_CloseSN.restype = ctypes.c_int
+
+
+# Comm helper functions
+self.FeasaCom_SendToAll = self.FeasaDLL['FeasaCom_SendToAll']
+self.FeasaCom_SendToAll.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_char_p, ctypes.POINTER(ctypes.c_char_p)]
+self.FeasaCom_SendToAll.restype = ctypes.c_int
+
+self.FeasaCom_SendToAll_NR = self.FeasaDLL['FeasaCom_SendToAll_NR']
+self.FeasaCom_SendToAll_NR.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_char_p]
+self.FeasaCom_SendToAll_NR.restype = ctypes.c_int
+
+self.FeasaCom_Open_Multi = self.FeasaDLL['FeasaCom_Open_Multi']
+self.FeasaCom_Open_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_Open_Multi.restype = ctypes.c_int
+
+self.FeasaCom_Close_Multi = self.FeasaDLL['FeasaCom_Close_Multi']
+self.FeasaCom_Close_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.c_int]
+self.FeasaCom_Close_Multi.restype = ctypes.c_int
+
+self.FeasaCom_Send_Multi = self.FeasaDLL['FeasaCom_Send_Multi']
+self.FeasaCom_Send_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_char_p)]
+self.FeasaCom_Send_Multi.restype = ctypes.c_int
+
+self.FeasaCom_Send_Multi_NR = self.FeasaDLL['FeasaCom_Send_Multi_NR']
+self.FeasaCom_Send_Multi_NR.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.c_char_p, ctypes.c_char]
+self.FeasaCom_Send_Multi_NR.restype = ctypes.c_int
+
+self.FeasaCom_OpenSN_Multi = self.FeasaDLL['FeasaCom_OpenSN_Multi']
+self.FeasaCom_OpenSN_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_OpenSN_Multi.restype = ctypes.c_int
+
+self.FeasaCom_CloseSN_Multi = self.FeasaDLL['FeasaCom_CloseSN_Multi']
+self.FeasaCom_CloseSN_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int]
+self.FeasaCom_CloseSN_Multi.restype = ctypes.c_int
+
+self.FeasaCom_SendSN_Multi = self.FeasaDLL['FeasaCom_SendSN_Multi']
+self.FeasaCom_SendSN_Multi.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_char_p)]
+self.FeasaCom_SendSN_Multi.restype = ctypes.c_int
+
+self.FeasaCom_CloseAll = self.FeasaDLL['FeasaCom_CloseAll']
+self.FeasaCom_CloseAll.restype = ctypes.c_int
+
+self.FeasaCom_GetResponseByPort = self.FeasaDLL['FeasaCom_GetResponseByPort']
+self.FeasaCom_GetResponseByPort.argtypes = [ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_GetResponseByPort.restype = ctypes.c_int
+
+
+# Test functions
+self.FeasaCom_Capture = self.FeasaDLL['FeasaCom_Capture']
+self.FeasaCom_Capture.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Capture.restype = ctypes.c_int
+
+self.FeasaCom_CaptureFromAll = self.FeasaDLL['FeasaCom_CaptureFromAll']
+self.FeasaCom_CaptureFromAll.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_CaptureFromAll.restype = ctypes.c_int
+
+self.FeasaCom_SpectrometerCapture = self.FeasaDLL['FeasaCom_SpectrometerCapture']
+self.FeasaCom_SpectrometerCapture.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_SpectrometerCapture.restype = ctypes.c_int
+
+self.FeasaCom_SpectrometerDark = self.FeasaDLL['FeasaCom_SpectrometerDark']
+self.FeasaCom_SpectrometerDark.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_SpectrometerDark.restype = ctypes.c_int
+
+self.FeasaCom_CaptureFromAllSpectrometers = self.FeasaDLL['FeasaCom_CaptureFromAllSpectrometers']
+self.FeasaCom_CaptureFromAllSpectrometers.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_CaptureFromAllSpectrometers.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_Setup = self.FeasaDLL['FeasaCom_Sequence_Setup']
+self.FeasaCom_Sequence_Setup.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Sequence_Setup.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_Capture = self.FeasaDLL['FeasaCom_Sequence_Capture']
+self.FeasaCom_Sequence_Capture.argtypes = [ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Sequence_Capture.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadIntensity = self.FeasaDLL['FeasaCom_Sequence_ReadIntensity']
+self.FeasaCom_Sequence_ReadIntensity.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadIntensity.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadxyI = self.FeasaDLL['FeasaCom_Sequence_ReadxyI']
+self.FeasaCom_Sequence_ReadxyI.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadxyI.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadHSI = self.FeasaDLL['FeasaCom_Sequence_ReadHSI']
+self.FeasaCom_Sequence_ReadHSI.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadHSI.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadRGBI = self.FeasaDLL['FeasaCom_Sequence_ReadRGBI']
+self.FeasaCom_Sequence_ReadRGBI.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_ubyte), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadRGBI.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadCCT = self.FeasaDLL['FeasaCom_Sequence_ReadCCT']
+self.FeasaCom_Sequence_ReadCCT.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_float)]
+self.FeasaCom_Sequence_ReadCCT.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_ReadWavelength = self.FeasaDLL['FeasaCom_Sequence_ReadWavelength']
+self.FeasaCom_Sequence_ReadWavelength.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_ReadWavelength.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_GetPattern = self.FeasaDLL['FeasaCom_Sequence_GetPattern']
+self.FeasaCom_Sequence_GetPattern.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_GetPattern.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_GetSweepingPattern = self.FeasaDLL['FeasaCom_Sequence_GetSweepingPattern']
+self.FeasaCom_Sequence_GetSweepingPattern.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_GetSweepingPattern.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_GetFrequency = self.FeasaDLL['FeasaCom_Sequence_GetFrequency']
+self.FeasaCom_Sequence_GetFrequency.argtypes = [ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_GetFrequency.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_FindTestSettings = self.FeasaDLL['FeasaCom_Sequence_FindTestSettings']
+self.FeasaCom_Sequence_FindTestSettings.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_Sequence_FindTestSettings.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_SetPatternThresholdHigh = self.FeasaDLL['FeasaCom_Sequence_SetPatternThresholdHigh']
+self.FeasaCom_Sequence_SetPatternThresholdHigh.argtypes = [ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Sequence_SetPatternThresholdHigh.restype = ctypes.c_int
+
+self.FeasaCom_Sequence_SetPatternThresholdLow = self.FeasaDLL['FeasaCom_Sequence_SetPatternThresholdLow']
+self.FeasaCom_Sequence_SetPatternThresholdLow.argtypes = [ctypes.c_int, ctypes.c_int]
+self.FeasaCom_Sequence_SetPatternThresholdLow.restype = ctypes.c_int
+
+
+# Daisy-chain functions
+self.FeasaCom_DaisyChain_Add = self.FeasaDLL['FeasaCom_DaisyChain_Add']
+self.FeasaCom_DaisyChain_Add.argtypes = [ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_DaisyChain_Add.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Del = self.FeasaDLL['FeasaCom_DaisyChain_Del']
+self.FeasaCom_DaisyChain_Del.argtypes = [ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_DaisyChain_Del.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Clear = self.FeasaDLL['FeasaCom_DaisyChain_Clear']
+self.FeasaCom_DaisyChain_Clear.argtypes = [ctypes.c_int]
+self.FeasaCom_DaisyChain_Clear.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Send = self.FeasaDLL['FeasaCom_DaisyChain_Send']
+self.FeasaCom_DaisyChain_Send.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_DaisyChain_Send.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_Capture = self.FeasaDLL['FeasaCom_DaisyChain_Capture']
+self.FeasaCom_DaisyChain_Capture.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_DaisyChain_Capture.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_SpectrometerCapture = self.FeasaDLL['FeasaCom_DaisyChain_SpectrometerCapture']
+self.FeasaCom_DaisyChain_SpectrometerCapture.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_DaisyChain_SpectrometerCapture.restype = ctypes.c_int
+
+self.FeasaCom_DaisyChain_SpectrometerDark = self.FeasaDLL['FeasaCom_DaisyChain_SpectrometerDark']
+self.FeasaCom_DaisyChain_SpectrometerDark.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_float]
+self.FeasaCom_DaisyChain_SpectrometerDark.restype = ctypes.c_int
+
+
+# External Trigger functions
+self.FeasaCom_ExternalTrigger_Listen = self.FeasaDLL['FeasaCom_ExternalTrigger_Listen']
+self.FeasaCom_ExternalTrigger_Listen.argtypes = [ctypes.c_int]
+self.FeasaCom_ExternalTrigger_Listen.restype = ctypes.c_int
+
+self.FeasaCom_ExternalTrigger_Abort = self.FeasaDLL['FeasaCom_ExternalTrigger_Abort']
+self.FeasaCom_ExternalTrigger_Abort.argtypes = [ctypes.c_int]
+self.FeasaCom_ExternalTrigger_Abort.restype = ctypes.c_int
+
+self.FeasaCom_ExternalTrigger_isFinished = self.FeasaDLL['FeasaCom_ExternalTrigger_isFinished']
+self.FeasaCom_ExternalTrigger_isFinished.argtypes = [ctypes.c_int]
+self.FeasaCom_ExternalTrigger_isFinished.restype = ctypes.c_int
+
+
+# Comm handling functions
+self.FeasaCom_EnumPorts = self.FeasaDLL['FeasaCom_EnumPorts']
+self.FeasaCom_EnumPorts.restype = ctypes.c_int
+
+self.FeasaCom_EnumPorts_Filter = self.FeasaDLL['FeasaCom_EnumPorts_Filter']
+self.FeasaCom_EnumPorts_Filter.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
+
+self.FeasaCom_IsConnected = self.FeasaDLL['FeasaCom_IsConnected']
+self.FeasaCom_IsConnected.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_IsConnected.restype = ctypes.c_int
+
+self.FeasaCom_AreConnected = self.FeasaDLL['FeasaCom_AreConnected']
+self.FeasaCom_AreConnected.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_char_p), ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_AreConnected.restype = ctypes.c_int
+
+self.FeasaCom_AreConnectedS = self.FeasaDLL['FeasaCom_AreConnectedS']
+self.FeasaCom_AreConnectedS.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_AreConnectedS.restype = ctypes.c_int
+
+self.FeasaCom_Detect = self.FeasaDLL['FeasaCom_Detect']
+self.FeasaCom_Detect.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.c_char_p]
+self.FeasaCom_Detect.restype = ctypes.c_int
+
+self.FeasaCom_DetectSN = self.FeasaDLL['FeasaCom_DetectSN']
+self.FeasaCom_DetectSN.argtypes = [ctypes.POINTER(ctypes.c_char_p), ctypes.c_char_p]
+self.FeasaCom_DetectSN.restype = ctypes.c_int
+
+self.FeasaCom_AddDetectionFilter = self.FeasaDLL['FeasaCom_AddDetectionFilter']
+self.FeasaCom_AddDetectionFilter.argtypes = [ctypes.c_char_p]
+
+self.FeasaCom_ClearDetectionFilters = self.FeasaDLL['FeasaCom_ClearDetectionFilters']
+
+self.FeasaCom_IsPortAvailable = self.FeasaDLL['FeasaCom_IsPortAvailable']
+self.FeasaCom_IsPortAvailable.argtypes = [ctypes.c_int]
+self.FeasaCom_IsPortAvailable.restype = ctypes.c_int
+
+self.FeasaCom_ListPortsDetected = self.FeasaDLL['FeasaCom_ListPortsDetected']
+self.FeasaCom_ListPortsDetected.argtypes = [POINTER(ctypes.c_int)]
+self.FeasaCom_ListPortsDetected.restype = ctypes.c_int
+
+self.FeasaCom_ListPortsDetectedTxt = self.FeasaDLL['FeasaCom_ListPortsDetectedTxt']
+self.FeasaCom_ListPortsDetectedTxt.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_ListPortsDetectedTxt.restype = ctypes.c_int
+
+self.FeasaCom_SetResponseTimeout = self.FeasaDLL['FeasaCom_SetResponseTimeout']
+self.FeasaCom_SetResponseTimeout.argtypes = [ctypes.c_uint]
+self.FeasaCom_SetResponseTimeout.restype = ctypes.c_int
+
+self.FeasaCom_SetResponseTimeoutAuto = self.FeasaDLL['FeasaCom_SetResponseTimeoutAuto']
+self.FeasaCom_SetResponseTimeoutAuto.argtypes = [ctypes.c_int, ctypes.c_int]
+self.FeasaCom_SetResponseTimeoutAuto.restype = ctypes.c_int
+
+self.FeasaCom_GetBaudrate = self.FeasaDLL['FeasaCom_GetBaudrate']
+self.FeasaCom_GetBaudrate.argtypes = [ctypes.c_int]
+self.FeasaCom_GetBaudrate.restype = ctypes.c_long
+
+self.FeasaCom_GetDeviceType = self.FeasaDLL['FeasaCom_GetDeviceType']
+self.FeasaCom_GetDeviceType.argtypes = [ctypes.c_int, ctypes.c_char_p]
+self.FeasaCom_GetDeviceType.restype = ctypes.c_int
+
+self.FeasaCom_GetError_Description = self.FeasaDLL['FeasaCom_GetError_Description']
+self.FeasaCom_GetError_Description.argtypes = [ctypes.c_char_p]
+
+self.FeasaCom_GetError_DescriptionByPort = self.FeasaDLL['FeasaCom_GetError_DescriptionByPort']
+self.FeasaCom_GetError_DescriptionByPort.argtypes = [ctypes.c_int, ctypes.c_char_p]
+
+self.FeasaCom_GetError_DescriptionBySN = self.FeasaDLL['FeasaCom_GetError_DescriptionBySN']
+self.FeasaCom_GetError_DescriptionBySN.argtypes = [ctypes.c_char_p, ctypes.c_char_p]
+
+self.FeasaCom_GetPortBySN = self.FeasaDLL['FeasaCom_GetPortBySN']
+self.FeasaCom_GetPortBySN.argtypes = [ctypes.c_char_p]
+self.FeasaCom_GetPortBySN.restype = ctypes.c_int
+
+self.FeasaCom_GetSNByPort = self.FeasaDLL['FeasaCom_GetSNByPort']
+self.FeasaCom_GetSNByPort.argtypes = [ctypes.c_char_p, ctypes.c_int]
+self.FeasaCom_GetSNByPort.restype = ctypes.c_int
+
+self.FeasaCom_GetPortByID = self.FeasaDLL['FeasaCom_GetPortByID']
+self.FeasaCom_GetPortByID.argtypes = [ctypes.c_char_p]
+self.FeasaCom_GetPortByID.restype = ctypes.c_int
+
+self.FeasaCom_GetOpenedPorts = self.FeasaDLL['FeasaCom_GetOpenedPorts']
+self.FeasaCom_GetOpenedPorts.argtypes = [ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_GetOpenedPorts.restype = ctypes.c_int
+
+self.FeasaCom_GetOpenedPortsS = self.FeasaDLL['FeasaCom_GetOpenedPortsS']
+self.FeasaCom_GetOpenedPortsS.argtypes = [ctypes.c_char_p, ctypes.c_char]
+self.FeasaCom_GetOpenedPortsS.restype = ctypes.c_int
+
+self.FeasaCom_OpenProject = self.FeasaDLL['FeasaCom_OpenProject']
+self.FeasaCom_OpenProject.argtypes = [ctypes.c_char_p]
+self.FeasaCom_OpenProject.restype = ctypes.c_int
+
+self.FeasaCom_CloseProject = self.FeasaDLL['FeasaCom_CloseProject']
+self.FeasaCom_CloseProject.restype = ctypes.c_int
+
+self.FeasaCom_SendByID = self.FeasaDLL['FeasaCom_SendByID']
+self.FeasaCom_SendByID.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
+self.FeasaCom_SendByID.restype = ctypes.c_int
+
+
+# Binning
+self.FeasaCom_Binning_GetBinFromVECFile = self.FeasaDLL['FeasaCom_Binning_GetBinFromVECFile']
+self.FeasaCom_Binning_GetBinFromVECFile.argtypes = [ctypes.c_char_p, ctypes.c_float, ctypes.c_float, ctypes.c_char_p]
+self.FeasaCom_Binning_GetBinFromVECFile.restype = ctypes.c_int
+
+
+# UserCal functions
+self.FeasaCom_UserCal_ResetIntensity = self.FeasaDLL['FeasaCom_UserCal_ResetIntensity']
+self.FeasaCom_UserCal_ResetIntensity.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetIntensity.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetIntensityGain = self.FeasaDLL['FeasaCom_UserCal_GetIntensityGain']
+self.FeasaCom_UserCal_GetIntensityGain.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_UserCal_GetIntensityGain.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetIntensityGain = self.FeasaDLL['FeasaCom_UserCal_SetIntensityGain']
+self.FeasaCom_UserCal_SetIntensityGain.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_SetIntensityGain.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustIntensity = self.FeasaDLL['FeasaCom_UserCal_AdjustIntensity']
+self.FeasaCom_UserCal_AdjustIntensity.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustIntensity.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetAbsInt = self.FeasaDLL['FeasaCom_UserCal_ResetAbsInt']
+self.FeasaCom_UserCal_ResetAbsInt.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetAbsInt.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetAbsIntFactor = self.FeasaDLL['FeasaCom_UserCal_GetAbsIntFactor']
+self.FeasaCom_UserCal_GetAbsIntFactor.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_double)]
+self.FeasaCom_UserCal_GetAbsIntFactor.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetAbsIntFactor = self.FeasaDLL['FeasaCom_UserCal_SetAbsIntFactor']
+self.FeasaCom_UserCal_SetAbsIntFactor.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_double, ctypes.c_int]
+self.FeasaCom_UserCal_SetAbsIntFactor.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustAbsInt = self.FeasaDLL['FeasaCom_UserCal_AdjustAbsInt']
+self.FeasaCom_UserCal_AdjustAbsInt.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_double, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustAbsInt.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetWavelengthOffset = self.FeasaDLL['FeasaCom_UserCal_ResetWavelengthOffset']
+self.FeasaCom_UserCal_ResetWavelengthOffset.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetWavelengthOffset.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetWavelengthOffset = self.FeasaDLL['FeasaCom_UserCal_GetWavelengthOffset']
+self.FeasaCom_UserCal_GetWavelengthOffset.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_int)]
+self.FeasaCom_UserCal_GetWavelengthOffset.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetWavelengthOffset = self.FeasaDLL['FeasaCom_UserCal_SetWavelengthOffset']
+self.FeasaCom_UserCal_SetWavelengthOffset.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_SetWavelengthOffset.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustWavelengthOffset = self.FeasaDLL['FeasaCom_UserCal_AdjustWavelengthOffset']
+self.FeasaCom_UserCal_AdjustWavelengthOffset.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustWavelengthOffset.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetxyOffsets = self.FeasaDLL['FeasaCom_UserCal_ResetxyOffsets']
+self.FeasaCom_UserCal_ResetxyOffsets.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetxyOffsets.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_GetxyOffsets = self.FeasaDLL['FeasaCom_UserCal_GetxyOffsets']
+self.FeasaCom_UserCal_GetxyOffsets.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.POINTER(ctypes.c_float), ctypes.POINTER(ctypes.c_float)]
+self.FeasaCom_UserCal_GetxyOffsets.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_SetxyOffsets = self.FeasaDLL['FeasaCom_UserCal_SetxyOffsets']
+self.FeasaCom_UserCal_SetxyOffsets.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_float, ctypes.c_float, ctypes.c_int]
+self.FeasaCom_UserCal_SetxyOffsets.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustxyOffsets = self.FeasaDLL['FeasaCom_UserCal_AdjustxyOffsets']
+self.FeasaCom_UserCal_AdjustxyOffsets.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_float, ctypes.c_float, ctypes.c_int]
+self.FeasaCom_UserCal_AdjustxyOffsets.restype = ctypes.c_int
+
+
+self.FeasaCom_UserCal_ResetRGBAdj = self.FeasaDLL['FeasaCom_UserCal_ResetRGBAdj']
+self.FeasaCom_UserCal_ResetRGBAdj.argtypes = [ctypes.c_int, ctypes.c_int]
+self.FeasaCom_UserCal_ResetRGBAdj.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_TakeRGBCurrentValues = self.FeasaDLL['FeasaCom_UserCal_TakeRGBCurrentValues']
+self.FeasaCom_UserCal_TakeRGBCurrentValues.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_char]
+self.FeasaCom_UserCal_TakeRGBCurrentValues.restype = ctypes.c_int
+
+self.FeasaCom_UserCal_AdjustRGB = self.FeasaDLL['FeasaCom_UserCal_AdjustRGB']
+self.FeasaCom_UserCal_AdjustRGB.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_float, ctypes.c_float, ctypes.c_double, ctypes.c_float, ctypes.c_float, ctypes.c_double, ctypes.c_float, ctypes.c_float, ctypes.c_double]
+self.FeasaCom_UserCal_AdjustRGB.restype = ctypes.c_int
+
